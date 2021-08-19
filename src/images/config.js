@@ -66,5 +66,17 @@ module.exports = {
     aspectRatio: 1366 / 480,
     breakpoints: [1024, 1366, 1920],
     layout: 'fullWidth',
+    options: {
+      fitIn: true,
+    },
+  },
+  'home.logo': {
+    sourceWidth: 220,
+    aspectRatio: 10,
+    breakpoints: [220, 150],
+    layout: 'fullWidth',
+    options: {
+      fitIn: true,
+    },
   },
 }

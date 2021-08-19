@@ -1,0 +1,16 @@
+.root {
+  @apply pl-6 sm:py-3 py-0;
+}
+
+.image {
+  @apply block;
+  height: 15px;
+  width: 150px;
+}
+
+@media (min-width: 640px) {
+  .image {
+    height: 20px;
+    width: 200px;
+  }
+}

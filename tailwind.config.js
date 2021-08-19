@@ -3,6 +3,7 @@ const Color = require('color')
 const COLORS = {
   PRIMARY: '#142032',
   PINK: '#f71963',
+  GRAY: '#727273',
 }
 
 function generateColors(color) {
@@ -22,6 +23,7 @@ module.exports = {
       colors: {
         primary: generateColors(COLORS.PRIMARY),
         pink: generateColors(COLORS.PINK),
+        gray: generateColors(COLORS.GRAY),
       },
     },
   },
