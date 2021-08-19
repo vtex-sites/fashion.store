@@ -1,5 +1,5 @@
 import type { FC } from 'react'
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Icon, Input } from '@vtex/store-ui'
 import { Facebook, Instagram, Twitter } from 'react-feather'
 
@@ -8,6 +8,7 @@ import { customerServices } from './Links/CustomerServices'
 import { needHelp } from './Links/NeedHelp'
 import * as styles from './Footer.module.css'
 import VtexLogo from './VtexLogo'
+import Cards from './Cards'
 
 interface Link {
   text: string
@@ -34,14 +35,43 @@ const Column: FC<ColumnProps> = ({ links }) => {
   )
 }
 
+const ColumnMobile: FC<ColumnProps> = ({ links }) => {
+  const [isActive, setIsActive] = useState(false)
+
+  return (
+    <ul>
+      <Button onClick={() => setIsActive(!isActive)} className={styles.heading}>
+        <div className="w-2/3 flex justify-start text-xs">{links[0].text}</div>
+        <div className="w-1/3 flex justify-end text-[#979899]">
+          {isActive ? '-' : '+'}
+        </div>
+      </Button>
+      {isActive
+        ? links.slice(1).map((element, idx) => (
+            <li key={idx} className="ml-3">
+              <a href={element.to}>{element.text}</a>
+            </li>
+          ))
+        : null}
+    </ul>
+  )
+}
+
 function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
+        <div className={styles.desktopHidden}>
+          <ColumnMobile links={aboutUs} />
+          <ColumnMobile links={needHelp} />
+          <ColumnMobile links={customerServices} />
+        </div>
         <div className="flex">
-          <Column links={aboutUs} />
-          <Column links={needHelp} />
-          <Column links={customerServices} />
+          <div className={styles.mobileHidden}>
+            <Column links={aboutUs} />
+            <Column links={needHelp} />
+            <Column links={customerServices} />
+          </div>
           <form>
             <div className={styles.form}>
               Join our newsletter
@@ -57,22 +87,25 @@ function Footer() {
           </form>
         </div>
         <div className={styles.containerBottom}>
-          <div className="w-1/3">Copyright VTEX 2021 @ All rights reserved</div>
+          <Icon component={<Cards />} className="md:hidden" />
+          <div className="flex justify-center mb-3 mt-10 md:my-0 md:justify-start md:w-1/3">
+            Copyright VTEX 2021 @ All rights reserved
+          </div>
           <div className={styles.social}>
             <div className="flex justify-end">
               <Instagram size={16} color="white" className="mr-2" />
-              Instagram
+              <span className={styles.mobileHidden}>Instagram</span>
             </div>
             <div className={styles.social}>
               <Facebook size={16} color="white" className="mr-2" />
-              Facebook
+              <span className={styles.mobileHidden}>Facebook</span>
             </div>
             <div className="flex">
               <Twitter size={16} color="white" className="mr-2" />
-              Twitter
+              <span className={styles.mobileHidden}>Twitter</span>
             </div>
           </div>
-          <div className="flex justify-center w-1/3 items-center">
+          <div className="hidden justify-center w-1/3 items-center md:flex">
             Powered by
             <Icon component={<VtexLogo />} className="ml-2" />
           </div>
