@@ -37,11 +37,11 @@
   @apply absolute flex justify-center justify-items-center bg-transparent border-transparent box-border cursor-pointer text-white top-1/2;
 }
 
-[data-carousel-controls] [data-store-button] [data-left-arrow] {
+[data-left-arrow] {
   @apply left-16;
 }
 
-[data-carousel-controls] [data-store-button] [data-right-arrow] {
+[data-right-arrow] {
   @apply right-16;
 }
 
