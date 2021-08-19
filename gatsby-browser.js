@@ -1,13 +1,14 @@
-import React from 'react'
 import {
-  SessionProvider,
-  UIProvider,
   CartProvider,
   CartValidator,
+  SessionProvider,
+  UIProvider,
 } from '@vtex/store-sdk'
+import React from 'react'
+import 'tailwindcss/tailwind.css'
 
-import ErrorBoundary from './src/sdk/error/ErrorBoundary'
 import { validateCart } from './src/sdk/cart/validateCart'
+import ErrorBoundary from './src/sdk/error/ErrorBoundary'
 
 export const wrapRootElement = ({ element }) => (
   <ErrorBoundary>
