@@ -4,7 +4,7 @@ import Navlinks from '../Navlinks'
 
 function Navbar() {
   return (
-    <header>
+    <header className="h-14">
       <Navlinks />
     </header>
   )

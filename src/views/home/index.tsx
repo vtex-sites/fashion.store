@@ -1,6 +1,8 @@
-import React, { lazy, Suspense, SuspenseList } from 'react'
-import type { Props as PageProps } from 'src/pages/index'
+import { useGetThumborImageData } from '@vtex/gatsby-plugin-thumbor'
 import { Button } from '@vtex/store-ui'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import React, { lazy, Suspense, SuspenseList, useMemo } from 'react'
+import type { Props as PageProps } from 'src/pages/index'
 
 const Seo = lazy(
   () =>
@@ -13,6 +15,32 @@ const Seo = lazy(
 export type Props = PageProps
 
 function View(props: Props) {
+  const getThumborImageData = useGetThumborImageData()
+
+  const bagImage = useMemo(
+    () =>
+      getThumborImageData({
+        baseUrl:
+          'https://fashioneurope.vtexassets.com/assets/vtex/assets-builder/fashioneurope.theme/2.7.0/images/banner-bags-to-everday-v3___1d749e240d536af22e58fadb181a7a29.png',
+        height: 344,
+        width: 344,
+        layout: 'fixed',
+      }),
+    [getThumborImageData]
+  )
+
+  const collectionImage = useMemo(
+    () =>
+      getThumborImageData({
+        baseUrl:
+          'https://fashioneurope.vtexassets.com/assets/vtex/assets-builder/fashioneurope.theme/2.7.0/images/banner-summer-collection___3d2dc6de19751ce047b361867c20d046.png',
+        height: 620,
+        width: 704,
+        layout: 'fullWidth',
+      }),
+    [getThumborImageData]
+  )
+
   // Send event to analytics
   // usePixelSendEvent(() => {
   //   const event: PageViewData = {
@@ -34,16 +62,13 @@ function View(props: Props) {
       </Suspense>
 
       {/* Visual Sections */}
-      <Suspense fallback={null}>
-        <div className="flex flex-col">
+      <div className="flex flex-col">
+        <Suspense fallback={null}>
           <span>carousel</span>
           <div className="bg-[#f5f6fa] text-primary flex flex-col items-center py-14">
-            <img
-              alt="Bags to everyday"
-              src="https://fashioneurope.vtexassets.com/assets/vtex/assets-builder/fashioneurope.theme/2.7.0/images/banner-bags-to-everday-v3___1d749e240d536af22e58fadb181a7a29.png"
-            />
+            <GatsbyImage image={bagImage} alt="Bags to everyday" />
             <div className="flex flex-col items-center">
-              <h2 className="text-2xl sm:text-4xl my-6">Bags to everyday</h2>
+              <h1 className="text-2xl sm:text-4xl my-6">Bags to everyday</h1>
               <Button className="bg-primary text-white uppercase text-sm font-medium py-3 px-10">
                 Shop Now
               </Button>
@@ -52,11 +77,17 @@ function View(props: Props) {
           <span>shelf</span>
           <div className="pt-14">
             <div className="pb-36 text-primary sm:bg-primary sm:text-white flex items-center flex-col sm:flex-row">
-              <img
+              <GatsbyImage
+                className="w-full sm:w-1/2 -mt-14"
+                image={collectionImage}
+                alt="Summer Collection"
+              />
+
+              {/* <img
                 alt="Summer Collection"
                 className="w-full sm:w-1/2 -mt-14"
                 src="https://fashioneurope.vtexassets.com/assets/vtex/assets-builder/fashioneurope.theme/2.7.0/images/banner-summer-collection___3d2dc6de19751ce047b361867c20d046.png"
-              />
+              /> */}
               <div className="flex flex-1 flex-col items-center my-10 sm:my-0">
                 <h2 className="text-2xl sm:text-4xl">Summer Collection</h2>
                 <p className="opacity-60 max-w-xs text-center my-6">
@@ -71,9 +102,12 @@ function View(props: Props) {
           </div>
           <span>shelf</span>
           <span>shelf</span>
+        </Suspense>
+
+        <Suspense fallback={null}>
           <div className="text-primary flex flex-col items-center py-8">
             <div className="flex flex-col items-center text-center max-w-xs">
-              <h2 className="text-4xl sm:text-5xl">Choose only the best.</h2>
+              <h3 className="text-4xl sm:text-5xl">Choose only the best.</h3>
               <p className="text-xl my-6">
                 <span className="opacity-60">You only live once. </span>
                 <a href="/#" className="text-pink">
@@ -98,8 +132,8 @@ function View(props: Props) {
               </div>
             </div>
           </div>
-        </div>
-      </Suspense>
+        </Suspense>
+      </div>
     </SuspenseList>
   )
 }
