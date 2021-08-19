@@ -27,14 +27,14 @@ export type GalleryQueryQueryVariables = Exact<{
 }>;
 
 
-export type GalleryQueryQuery = { vtex: { productSearch: Maybe<{ products: Maybe<Array<Maybe<{ productId: Maybe<string>, productName: Maybe<string> }>>> }> } };
+export type GalleryQueryQuery = { vtex: { productSearch: Maybe<{ products: Maybe<Array<Maybe<{ productId: Maybe<string>, productName: Maybe<string>, items: Maybe<Array<Maybe<{ itemId: Maybe<string>, name: Maybe<string>, images: Maybe<Array<Maybe<{ imageUrl: Maybe<string>, imageText: Maybe<string> }>>>, sellers: Maybe<Array<Maybe<{ sellerId: Maybe<string>, sellerDefault: Maybe<boolean>, commertialOffer: Maybe<{ ListPrice: Maybe<number>, Price: Maybe<number>, AvailableQuantity: Maybe<number> }> }>>> }>>> }>>> }> } };
 
 
 // Query Related Code
 
 export const GalleryQuery = {
-  query: process.env.NODE_ENV === 'production' ? undefined : "query GalleryQuery($fullText: String, $selectedFacets: [VTEX_SelectedFacetInput!], $from: Int, $to: Int, $sort: String, $hideUnavailableItems: Boolean = false) {\n  vtex {\n    productSearch(\n      hideUnavailableItems: $hideUnavailableItems\n      selectedFacets: $selectedFacets\n      fullText: $fullText\n      from: $from\n      to: $to\n      orderBy: $sort\n    ) {\n      products {\n        productId\n        productName\n      }\n    }\n  }\n}\n",
-  sha256Hash: "ee99fb017f57e8aaac5f4f78bd6598ce82de5f346a6f9f29c1da4101d731a57b",
+  query: process.env.NODE_ENV === 'production' ? undefined : "query GalleryQuery($fullText: String, $selectedFacets: [VTEX_SelectedFacetInput!], $from: Int, $to: Int, $sort: String, $hideUnavailableItems: Boolean = false) {\n  vtex {\n    productSearch(\n      hideUnavailableItems: $hideUnavailableItems\n      selectedFacets: $selectedFacets\n      fullText: $fullText\n      from: $from\n      to: $to\n      orderBy: $sort\n    ) {\n      products {\n        productId\n        productName\n        items {\n          itemId\n          name\n          images {\n            imageUrl\n            imageText\n          }\n          sellers {\n            sellerId\n            sellerDefault\n            commertialOffer {\n              ListPrice\n              Price\n              AvailableQuantity\n            }\n          }\n        }\n      }\n    }\n  }\n}\n",
+  sha256Hash: "351a386aea924b0e3f256307c5581d2d0a7a4d717e1c33f49e10e419e41f9faa",
   operationName: "GalleryQuery",
 }
 

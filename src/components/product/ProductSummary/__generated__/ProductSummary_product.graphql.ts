@@ -17,7 +17,7 @@ type Scalars = {
 }
 
 // Operation related types
-export type ProductSummary_ProductFragment = { productId: Maybe<string>, productName: Maybe<string> };
+export type ProductSummary_ProductFragment = { productId: Maybe<string>, productName: Maybe<string>, items: Maybe<Array<Maybe<{ itemId: Maybe<string>, name: Maybe<string>, images: Maybe<Array<Maybe<{ imageUrl: Maybe<string>, imageText: Maybe<string> }>>>, sellers: Maybe<Array<Maybe<{ sellerId: Maybe<string>, sellerDefault: Maybe<boolean>, commertialOffer: Maybe<{ ListPrice: Maybe<number>, Price: Maybe<number>, AvailableQuantity: Maybe<number> }> }>>> }>>> };
 
 
 // Query Related Code

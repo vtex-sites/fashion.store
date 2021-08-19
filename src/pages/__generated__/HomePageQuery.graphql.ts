@@ -17,17 +17,23 @@ type Scalars = {
 }
 
 // Operation related types
-export type HomePageQueryQueryVariables = Exact<{ [key: string]: never; }>;
+export type HomePageQueryQueryVariables = Exact<{
+  from: Scalars['Int'];
+  to: Scalars['Int'];
+  collection: Scalars['String'];
+  orderBy: Scalars['String'];
+  hideUnavailableItems: Scalars['Boolean'];
+}>;
 
 
-export type HomePageQueryQuery = { site: Maybe<{ siteMetadata: Maybe<{ title: Maybe<string>, description: Maybe<string>, titleTemplate: Maybe<string> }> }> };
+export type HomePageQueryQuery = { site: Maybe<{ siteMetadata: Maybe<{ title: Maybe<string>, description: Maybe<string>, titleTemplate: Maybe<string> }> }>, vtex: { products: Maybe<Array<Maybe<{ productId: Maybe<string>, productName: Maybe<string>, items: Maybe<Array<Maybe<{ itemId: Maybe<string>, name: Maybe<string>, images: Maybe<Array<Maybe<{ imageUrl: Maybe<string>, imageText: Maybe<string> }>>>, sellers: Maybe<Array<Maybe<{ sellerId: Maybe<string>, sellerDefault: Maybe<boolean>, commertialOffer: Maybe<{ ListPrice: Maybe<number>, Price: Maybe<number>, AvailableQuantity: Maybe<number> }> }>>> }>>> }>>> } };
 
 
 // Query Related Code
 
 export const HomePageQuery = {
-  query: process.env.NODE_ENV === 'production' ? undefined : "query HomePageQuery {\n  site {\n    siteMetadata {\n      title\n      description\n      titleTemplate\n    }\n  }\n}\n",
-  sha256Hash: "6ae3b26ce68da0cd3253ab425e98500c26d9c33760ba847de8120a2b4dae50ed",
+  query: process.env.NODE_ENV === 'production' ? undefined : "query HomePageQuery($from: Int!, $to: Int!, $collection: String!, $orderBy: String!, $hideUnavailableItems: Boolean!) {\n  site {\n    siteMetadata {\n      title\n      description\n      titleTemplate\n    }\n  }\n  vtex {\n    products(\n      from: $from\n      to: $to\n      collection: $collection\n      orderBy: $orderBy\n      hideUnavailableItems: $hideUnavailableItems\n    ) {\n      productId\n      productName\n      items {\n        itemId\n        name\n        images {\n          imageUrl\n          imageText\n        }\n        sellers {\n          sellerId\n          sellerDefault\n          commertialOffer {\n            ListPrice\n            Price\n            AvailableQuantity\n          }\n        }\n      }\n    }\n  }\n}\n",
+  sha256Hash: "3176421072035384a8a1b4cc248b4468614cc9c05cf068e265e1323c6d8a8c32",
   operationName: "HomePageQuery",
 }
 
