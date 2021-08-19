@@ -1,0 +1,68 @@
+.container {
+  @apply w-screen;
+}
+
+.image {
+  @apply w-screen min-w-full h-[calc(100vw/(411/576))];
+  @apply sm:h-[calc(100vw/(1366/758))];
+}
+
+.title {
+  @apply absolute top-[38%] text-white z-10 text-center w-screen text-2xl font-medium;
+}
+
+.links {
+  @apply absolute top-[53%] flex flex-wrap items-center z-10;
+  @apply w-screen px-5 justify-between;
+  @apply sm:px-0 sm:justify-center;
+}
+
+.link {
+  @apply bg-transparent border-white border-solid border-[1px] text-white text-center uppercase;
+  @apply w-[47%] mx-0 p-3 mb-4;
+  @apply sm:w-44 sm:mx-4 sm:p-4;
+}
+
+.link:last-child {
+  @apply flex-grow;
+  @apply sm:flex-grow-0;
+}
+
+[data-carousel-controls] {
+  @apply hidden;
+  @apply sm:block;
+}
+
+[data-carousel-controls] [data-store-button] {
+  @apply absolute flex justify-center justify-items-center bg-transparent border-transparent box-border cursor-pointer text-white top-1/2;
+}
+
+[data-left-arrow] {
+  @apply left-16;
+}
+
+[data-right-arrow] {
+  @apply right-16;
+}
+
+svg {
+  color: text;
+}
+
+[data-carousel-bullets] {
+  @apply absolute p-0 m-0 left-0 right-0 bottom-1/4;
+  @apply hidden;
+  @apply sm:block;
+}
+
+[data-carousel-bullets] [data-store-bullets] {
+  @apply flex list-none w-screen justify-center;
+}
+
+[data-carousel-bullets] [data-store-bullets] [data-store-button] {
+  @apply bg-white cursor-pointer inline-block mx-1 w-5 p-0 h-1;
+}
+
+[data-carousel-bullets] [data-store-bullets] [data-store-button]:disabled {
+  @apply bg-pink w-10;
+}
