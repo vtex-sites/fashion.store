@@ -39,21 +39,23 @@ const ColumnMobile: FC<ColumnProps> = ({ links }) => {
   const [isActive, setIsActive] = useState(false)
 
   return (
-    <ul>
+    <>
       <Button onClick={() => setIsActive(!isActive)} className={styles.heading}>
         <div className="w-2/3 flex justify-start text-xs">{links[0].text}</div>
         <div className="w-1/3 flex justify-end text-[#979899]">
           {isActive ? '-' : '+'}
         </div>
       </Button>
-      {isActive
-        ? links.slice(1).map((element, idx) => (
-            <li key={idx} className="ml-3">
-              <a href={element.to}>{element.text}</a>
-            </li>
-          ))
-        : null}
-    </ul>
+      <ul>
+        {isActive
+          ? links.slice(1).map((element, idx) => (
+              <li key={idx} className="ml-3">
+                <a href={element.to}>{element.text}</a>
+              </li>
+            ))
+          : null}
+      </ul>
+    </>
   )
 }
 
