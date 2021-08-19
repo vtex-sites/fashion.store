@@ -8,6 +8,11 @@
   @apply sm:h-[calc(100vw/(1366/758))];
 }
 
+[data-placeholder-image] {
+  @apply w-screen h-[calc(100vw/(411/576))];
+  @apply sm:h-[calc(100vw/(1366/758))];
+}
+
 .title {
   @apply absolute top-[38%] text-white z-10 text-center w-screen text-2xl font-medium;
 }
