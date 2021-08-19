@@ -1,0 +1,27 @@
+.wrapper {
+  @apply pt-14;
+}
+
+.container {
+  @apply pb-36 text-primary sm:bg-primary sm:text-white flex items-center flex-col sm:flex-row;
+}
+
+.image {
+  @apply w-full sm:w-1/2 -mt-14;
+}
+
+.content {
+  @apply flex flex-1 flex-col items-center my-10 sm:my-0;
+}
+
+.title {
+  @apply text-2xl sm:text-4xl;
+}
+
+.description {
+  @apply opacity-60 max-w-xs text-center my-6;
+}
+
+.button {
+  @apply bg-pink-light text-pink sm:bg-pink sm:text-white uppercase text-sm font-medium py-3 sm:px-10 w-full sm:w-auto;
+}

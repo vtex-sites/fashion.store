@@ -1,0 +1,15 @@
+.container {
+  @apply bg-[#f5f6fa] text-primary flex flex-col items-center py-14;
+}
+
+.content {
+  @apply flex flex-col items-center;
+}
+
+.title {
+  @apply text-2xl sm:text-4xl my-6;
+}
+
+.button {
+  @apply bg-primary text-white uppercase text-sm font-medium py-3 px-10;
+}
