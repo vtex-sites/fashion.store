@@ -16,5 +16,5 @@
 
 .image {
   @apply h-[424px];
-  @apply md:h-[480px];
+  @apply sm:h-[480px];
 }
