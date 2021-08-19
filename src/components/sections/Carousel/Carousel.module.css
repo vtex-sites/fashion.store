@@ -1,10 +1,11 @@
 .container {
   @apply w-screen h-[calc(100vw/(411/576))];
-  @apply sm:h-[calc(100vw/(3330/1850))];
+  @apply sm:h-[calc(100vw/(1366/758))];
 }
 
 .image {
-  @apply w-screen;
+  @apply w-screen h-[calc(100vw/(411/576))];
+  @apply sm:h-[calc(100vw/(1366/758))];
 }
 
 .title {
