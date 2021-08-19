@@ -1,0 +1,48 @@
+.footer {
+  @apply bg-[#152032]
+}
+
+.container {
+  @apply pt-16 px-28 pb-10
+}
+
+.column {
+  @apply w-3/12
+}
+
+.heading a {
+  @apply text-[#717786] uppercase mb-6
+}
+
+a {
+  @apply text-white font-normal text-xs my-6
+}
+
+.form {
+  @apply hidden text-white border-b font-bold leading-8 md:block
+}
+
+.subtitle {
+  @apply text-[#A1A8B3] my-6 text-xs leading-5 max-w-xs font-normal
+}
+
+.input {
+  @apply flex pb-2 pt-5
+}
+
+[data-store-input] {
+  @apply bg-[#152032] text-white text-xs w-3/4
+}
+
+.input button {
+  @apply pl-3 text-[#f71963] uppercase text-xs font-medium
+}
+
+.containerBottom {
+  @apply flex text-[#A1A8B3] text-xs font-normal mt-12 items-center
+}
+
+.social {
+  @apply flex justify-center w-1/3
+}
+

@@ -4,4 +4,5 @@ export const aboutUs = [
   { text: 'Careers', to: '/' },
   { text: 'Legal', to: '/' },
   { text: 'Privacy & Cookies', to: '/' },
+  { text: 'Corporate Information', to: '/' },
 ]

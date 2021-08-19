@@ -4,4 +4,5 @@ export const customerServices = [
   { text: 'Payment', to: '/' },
   { text: 'FAQs', to: '/' },
   { text: 'Product After Care', to: '/' },
+  { text: 'Gift Cards', to: '/' },
 ]
