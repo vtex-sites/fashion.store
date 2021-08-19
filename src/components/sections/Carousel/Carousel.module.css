@@ -1,14 +1,8 @@
 .container {
-  @apply w-screen h-[calc(100vw/(411/576))];
-  @apply sm:h-[calc(100vw/(1366/758))];
+  @apply w-screen;
 }
 
 .image {
-  @apply w-screen h-[calc(100vw/(411/576))];
-  @apply sm:h-[calc(100vw/(1366/758))];
-}
-
-[data-carousel-container] [data-placeholder-image] {
   @apply w-screen h-[calc(100vw/(411/576))];
   @apply sm:h-[calc(100vw/(1366/758))];
 }
@@ -34,10 +28,6 @@
   @apply sm:flex-grow-0;
 }
 
-[data-carousel-track] {
-  @apply relative;
-}
-
 [data-carousel-controls] {
   @apply hidden;
   @apply sm:block;
@@ -47,11 +37,11 @@
   @apply absolute flex justify-center justify-items-center bg-transparent border-transparent box-border cursor-pointer text-white top-1/2;
 }
 
-[data-left-arrow] {
+[data-carousel-controls] [data-store-button] [data-left-arrow] {
   @apply left-16;
 }
 
-[data-right-arrow] {
+[data-carousel-controls] [data-store-button] [data-right-arrow] {
   @apply right-16;
 }
 
