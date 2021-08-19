@@ -89,7 +89,7 @@ function Footer() {
           </form>
         </div>
         <div className={styles.containerBottom}>
-          <Icon component={<Cards />} className="md:hidden" />
+          <Icon component={<Cards />} className="md:hidden w-80 h-8" />
           <div className="flex justify-center mb-3 mt-10 md:my-0 md:justify-start md:w-1/3">
             Copyright VTEX 2021 @ All rights reserved
           </div>
@@ -109,7 +109,7 @@ function Footer() {
           </div>
           <div className="hidden justify-center w-1/3 items-center md:flex">
             Powered by
-            <Icon component={<VtexLogo />} className="ml-2" />
+            <Icon component={<VtexLogo />} className="ml-2 w-14 h-5" />
           </div>
         </div>
       </div>
