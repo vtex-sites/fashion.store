@@ -8,7 +8,7 @@
   @apply sm:h-[calc(100vw/(1366/758))];
 }
 
-[data-placeholder-image] {
+[data-carousel-container] [data-placeholder-image] {
   @apply w-screen h-[calc(100vw/(411/576))];
   @apply sm:h-[calc(100vw/(1366/758))];
 }

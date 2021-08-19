@@ -57,7 +57,7 @@ function CarouselSection({ items, title, links }: Props) {
   const images = useImages(items)
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-carousel-container>
       <div className={styles.title}>{title}</div>
       <div className={styles.links}>
         {links.map((link) => (
