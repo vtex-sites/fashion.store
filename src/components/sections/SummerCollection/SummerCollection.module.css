@@ -23,5 +23,5 @@
 }
 
 .button {
-  @apply bg-pink text-white uppercase text-sm font-medium py-3 sm:px-10 w-full sm:w-auto;
+  @apply bg-pink-dark text-white uppercase text-sm font-medium py-3 sm:px-10 w-full sm:w-auto;
 }
