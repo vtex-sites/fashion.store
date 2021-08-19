@@ -50,6 +50,9 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: 'gatsby-plugin-postcss',
+    },
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'Fashion Demo Store',
