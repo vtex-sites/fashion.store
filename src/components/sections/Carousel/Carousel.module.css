@@ -23,13 +23,6 @@
   @apply sm:w-44 sm:mx-4 sm:p-4;
 }
 
-.carousel {
-  @apply flex overflow-x-auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-}
-
 .link:last-child {
   @apply flex-grow;
   @apply sm:flex-grow-0;
