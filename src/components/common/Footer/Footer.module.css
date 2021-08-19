@@ -1,5 +1,5 @@
 .footer {
-  @apply bg-[#152032]
+  @apply bg-[#152032] h-[408px] md:h-96
 }
 
 .container {
@@ -15,7 +15,7 @@
 }
 
 .heading a {
-  @apply text-[#717786] uppercase mb-6
+  @apply text-[#8e95a7] uppercase mb-6
 }
 
 a {
@@ -39,7 +39,7 @@ a {
 }
 
 .input button {
-  @apply pl-3 text-[#f71963] uppercase text-xs font-medium
+  @apply pl-3 text-[#ff4281] uppercase text-xs font-medium
 }
 
 .containerBottom {
