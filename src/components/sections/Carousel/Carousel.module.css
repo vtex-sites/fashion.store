@@ -3,7 +3,7 @@
 }
 
 .image {
-  @apply w-screen h-[calc(100vw/(411/576))];
+  @apply w-screen min-w-full h-[calc(100vw/(411/576))];
   @apply sm:h-[calc(100vw/(1366/758))];
 }
 
@@ -21,6 +21,13 @@
   @apply bg-transparent border-white border-solid border-[1px] text-white text-center uppercase;
   @apply w-[47%] mx-0 p-3 mb-4;
   @apply sm:w-44 sm:mx-4 sm:p-4;
+}
+
+.carousel {
+  @apply flex overflow-x-auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 .link:last-child {

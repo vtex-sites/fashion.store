@@ -66,7 +66,8 @@ function CarouselSection({ items, title, links }: Props) {
           </Link>
         ))}
       </div>
-      <Carousel>
+      {/* <Carousel> */}
+      <div className={styles.carousel}>
         {images.map((image, idx) => (
           <GatsbyImage
             className={styles.image}
@@ -75,7 +76,8 @@ function CarouselSection({ items, title, links }: Props) {
             alt={items[idx].alt}
           />
         ))}
-      </Carousel>
+      </div>
+      {/* </Carousel> */}
     </div>
   )
 }
