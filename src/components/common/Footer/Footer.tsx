@@ -1,6 +1,6 @@
 import type { FC } from 'react'
 import React, { useState } from 'react'
-import { Button, Icon, Input } from '@vtex/store-ui'
+import { Button, Icon } from '@vtex/store-ui'
 import { Facebook, Instagram, Twitter } from 'react-feather'
 
 import { aboutUs } from './Links/AboutUs'
@@ -9,6 +9,7 @@ import { needHelp } from './Links/NeedHelp'
 import * as styles from './Footer.module.css'
 import VtexLogo from './VtexLogo'
 import Cards from './Cards'
+import { Newsletter } from './Newsletter'
 
 interface Link {
   text: string
@@ -62,6 +63,7 @@ const ColumnMobile: FC<ColumnProps> = ({ links }) => {
 function Footer() {
   return (
     <footer className={styles.footer}>
+      <Newsletter className={styles.newsletterContainer} />
       <div className={styles.container}>
         <div className={styles.desktopHidden}>
           <ColumnMobile links={aboutUs} />
@@ -73,20 +75,8 @@ function Footer() {
             <Column links={aboutUs} />
             <Column links={needHelp} />
             <Column links={customerServices} />
+            <Newsletter />
           </div>
-          <form>
-            <div className={styles.form}>
-              Join our newsletter
-              <div className={styles.subtitle}>
-                Sign up for email updates on the last collections, campaings and
-                videos
-              </div>
-              <div className={styles.input}>
-                <Input placeholder="ENTER YOUR EMAIL" />
-                <Button>Sign up</Button>
-              </div>
-            </div>
-          </form>
         </div>
         <div className={styles.containerBottom}>
           <Icon component={<Cards />} className="md:hidden w-80 h-8" />
