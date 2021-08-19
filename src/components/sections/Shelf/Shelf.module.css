@@ -1,0 +1,39 @@
+.container {
+  @apply w-screen px-28;
+}
+
+[data-store-carousel] {
+  @apply relative;
+}
+
+[data-carousel-controls] [data-store-button] {
+  @apply absolute flex justify-center justify-items-center bg-transparent border-transparent box-border cursor-pointer text-white top-1/2;
+}
+
+[data-carousel-controls] [data-store-button] [data-store-icon] {
+  @apply text-black;
+}
+
+[data-left-arrow] {
+  @apply left-16;
+}
+
+[data-right-arrow] {
+  @apply right-16;
+}
+
+[data-carousel-bullets] {
+  @apply absolute p-0 m-0 left-0 right-0 bottom-4;
+}
+
+[data-carousel-bullets] [data-store-bullets] {
+  @apply flex list-none w-full justify-center;
+}
+
+[data-carousel-bullets] [data-store-bullets] [data-store-button] {
+  @apply bg-gray-300 rounded-full cursor-pointer inline-block mx-1 w-5 p-0 h-1 transition-all;
+}
+
+[data-carousel-bullets] [data-store-bullets] [data-store-button]:disabled {
+  @apply bg-pink-800 w-10;
+}

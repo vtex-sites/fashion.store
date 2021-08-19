@@ -1,6 +1,22 @@
 import React, { lazy, Suspense, SuspenseList } from 'react'
 import type { Props as PageProps } from 'src/pages/index'
 
+const Shelf = lazy(
+  () =>
+    import(
+      /* webpackMode: "eager" */
+      'src/components/sections/Shelf'
+    )
+)
+
+const ShelfNews = lazy(
+  () =>
+    import(
+      /* webpackMode: "eager" */
+      'src/components/sections/ShelfNews'
+    )
+)
+
 const Seo = lazy(
   () =>
     import(
@@ -44,6 +60,21 @@ const CarouselSection = lazy(
 export type Props = PageProps
 
 function View(props: Props) {
+  const tests = [
+    'One',
+    'Two',
+    'Three',
+    'Four',
+    'Five',
+    'Six',
+    'Seven',
+    'Eight',
+    'Nine',
+    'Ten',
+    'Eleven',
+    'Twelve',
+    'Thirteen',
+  ]
   return (
     <div className="flex flex-col">
       <SuspenseList>
@@ -91,10 +122,20 @@ function View(props: Props) {
 
         <Suspense fallback={null}>
           <BagsSection />
-          {/* <span>shelf</span> */}
+          <Shelf
+            className="text-center text-6xl"
+            items={tests}
+            itemsPerPage={[1, 3]}
+            title="Shop by look"
+          />
           <SummerCollectionSection />
-          {/* <span>shelf</span>
-          <span>shelf</span> */}
+          <Shelf
+            className="text-2xl"
+            items={tests}
+            itemsPerPage={[2, 4]}
+            title="Find in..."
+          />
+          <ShelfNews className="text-5xl" items={tests} itemsPerPage={[2, 4]} />
           <ChooseSection />
         </Suspense>
       </SuspenseList>

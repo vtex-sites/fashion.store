@@ -104,6 +104,12 @@ module.exports = {
     aspectRatio: 1,
     layout: 'constrained',
     breakpoints: [250, 360, 480],
+  },
+  'shelf.gif': {
+    sourceWidth: 600,
+    aspectRatio: 1,
+    breakpoints: [320, 480, 740, 1080],
+    layout: 'constrained',
     options: {
       fitIn: true,
     },
