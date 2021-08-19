@@ -45,14 +45,14 @@ export type Props = PageProps
 
 function View(props: Props) {
   return (
-    <SuspenseList>
-      {/* Seo Components */}
-      <Suspense fallback={null}>
-        <Seo {...props} />
-      </Suspense>
+    <div className="flex flex-col">
+      <SuspenseList>
+        {/* Seo Components */}
+        <Suspense fallback={null}>
+          <Seo {...props} />
+        </Suspense>
 
-      {/* Visual Sections */}
-      <div className="flex flex-col">
+        {/* Visual Sections */}
         <Suspense fallback={null}>
           <CarouselSection
             title="I'm looking for awesome styles for:"
@@ -90,14 +90,14 @@ function View(props: Props) {
         </Suspense>
         <Suspense fallback={null}>
           <BagsSection />
-          <span>shelf</span>
+          {/* <span>shelf</span> */}
           <SummerCollectionSection />
-          <span>shelf</span>
-          <span>shelf</span>
+          {/* <span>shelf</span>
+          <span>shelf</span> */}
           <ChooseSection />
         </Suspense>
-      </div>
-    </SuspenseList>
+      </SuspenseList>
+    </div>
   )
 }
 
