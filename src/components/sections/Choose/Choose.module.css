@@ -19,7 +19,7 @@
 }
 
 .descriptionLink {
-  @apply text-pink;
+  @apply text-pink-dark;
 }
 
 .images {

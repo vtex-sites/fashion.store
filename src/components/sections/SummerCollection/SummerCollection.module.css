@@ -19,9 +19,9 @@
 }
 
 .description {
-  @apply opacity-60 max-w-xs text-center my-6;
+  @apply opacity-80 max-w-xs text-center my-6;
 }
 
 .button {
-  @apply bg-pink-light text-pink sm:bg-pink sm:text-white uppercase text-sm font-medium py-3 sm:px-10 w-full sm:w-auto;
+  @apply bg-pink text-white uppercase text-sm font-medium py-3 sm:px-10 w-full sm:w-auto;
 }

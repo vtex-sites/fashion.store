@@ -1,3 +1,18 @@
+const Color = require('color')
+
+const COLORS = {
+  PRIMARY: '#142032',
+  PINK: '#f71963',
+}
+
+function generateColors(color) {
+  return {
+    light: Color(color).lighten(0.2).hex(),
+    DEFAULT: color,
+    dark: Color(color).darken(0.2).hex(),
+  }
+}
+
 module.exports = {
   mode: 'jit',
   purge: ['./src/**/*.{js,jsx,ts,tsx}'],
@@ -5,11 +20,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#142032',
-        pink: {
-          light: '#fff3f6',
-          DEFAULT: '#f71963',
-        },
+        primary: generateColors(COLORS.PRIMARY),
+        pink: generateColors(COLORS.PINK),
       },
     },
   },
