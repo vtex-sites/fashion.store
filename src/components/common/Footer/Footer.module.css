@@ -1,9 +1,9 @@
 .footer {
-  @apply bg-[#152032] h-[408px] md:h-96
+  @apply h-[408px] md:h-96
 }
 
 .container {
-  @apply py-12 px-6 md:pt-16 md:px-28 md:pb-10
+  @apply bg-[#152032] py-12 px-6 h-full md:pt-16 md:px-28 md:pb-10
 }
 
 .column {
@@ -23,23 +23,24 @@ a {
 }
 
 .form {
-  @apply hidden text-white border-b font-bold leading-8 md:block
+  @apply text-white border-b border-[#152032] font-semibold pb-2 leading-[56px] text-4xl text-center;
+  @apply md:border-white md:font-bold md:leading-8 md:text-2xl md:text-left
 }
 
 .subtitle {
-  @apply text-[#A1A8B3] my-6 text-xs leading-5 max-w-xs font-normal
+  @apply text-white my-6 text-xs leading-5 font-normal text-center max-w-xs md:text-[#A1A8B3] md:text-left
 }
 
 .input {
-  @apply flex pb-2 pt-5
+  @apply flex pb-2 pt-5 text-[#152032]
 }
 
 [data-store-input] {
-  @apply bg-[#152032] text-white text-xs w-3/4
+  @apply bg-[#A1A8B3] md:bg-[#152032] text-[#152032] md:text-white placeholder-[#152032] md:placeholder-white text-xs w-3/4
 }
 
 .input button {
-  @apply pl-3 text-[#ff4281] uppercase text-xs font-medium
+  @apply pl-3 text-white md:text-[#ff4281] uppercase text-xs font-medium
 }
 
 .containerBottom {
@@ -56,4 +57,8 @@ a {
 
 .desktopHidden {
   @apply contents md:hidden
+}
+
+.newsletterContainer {
+  @apply flex bg-[#A1A8B3] md:hidden py-24 px-7
 }
