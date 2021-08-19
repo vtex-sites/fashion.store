@@ -8,7 +8,7 @@ function Navlinks() {
   return (
     <nav className={styles.root}>
       <span className={styles.languageSelector}>UK</span>
-      <Link to="/wishlist">
+      <Link to="/wishlist" aria-label="Wishlist">
         <Heart className={`${styles.navlink} ${styles.wishListNav}`} />
       </Link>
       <User className={`${styles.navlink} ${styles.userNav}`} />

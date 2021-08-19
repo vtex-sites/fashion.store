@@ -20,7 +20,7 @@ function Logo() {
 
   return (
     <div className={styles.root}>
-      <Link to="/">
+      <Link to="/" aria-label="Home">
         <GatsbyImage className={styles.image} image={logoImage} alt="Logo" />
       </Link>
     </div>
