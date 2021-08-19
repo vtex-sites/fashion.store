@@ -22,6 +22,14 @@ const ProductGallery = lazy(
     )
 )
 
+const CollectionBanner = lazy(
+  () =>
+    import(
+      /* webpackMode: "eager" */
+      'src/components/sections/CollectionBanner'
+    )
+)
+
 interface Props extends PageProps {
   searchParams: SearchParamsState
 }
@@ -67,6 +75,20 @@ function View(props: Props) {
         </Suspense>
 
         {/* UI components */}
+        <Suspense fallback={null}>
+          <CollectionBanner
+            image={{
+              desktop:
+                'https://fashioneurope.vtexassets.com/assets/vtex/assets-builder/fashioneurope.theme/2.7.0/images/search-banner___b133a2e011b0a025cdc7f9fb02645848.jpg',
+              mobile:
+                'https://fashioneurope.vtexassets.com/assets/vtex/assets-builder/fashioneurope.theme/2.7.0/images/search-banner___b133a2e011b0a025cdc7f9fb02645848.jpg',
+              alt: 'Collection Image',
+            }}
+            title={storeCollection?.seo.title ?? 'Collection'}
+            description="explore the collection"
+          />
+        </Suspense>
+
         <Suspense fallback={null}>
           <ProductGallery
             initialData={dynamicData}

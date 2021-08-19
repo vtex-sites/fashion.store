@@ -52,4 +52,16 @@ module.exports = {
       fitIn: true,
     },
   },
+  'collectionBanner.mobile': {
+    sourceWidth: 720,
+    aspectRatio: 360 / 424,
+    breakpoints: [360, 480, 720],
+    layout: 'fullWidth',
+  },
+  'collectionBanner.desktop': {
+    sourceWidth: 1920,
+    aspectRatio: 1366 / 480,
+    breakpoints: [1024, 1366, 1920],
+    layout: 'fullWidth',
+  },
 }
