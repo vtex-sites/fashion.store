@@ -1,17 +1,20 @@
 module.exports = {
-  'product.summary': {
-    sourceWidth: 480,
-    aspectRatio: 1,
-    breakpoints: [250, 360, 480],
+  'carousel.desktop': {
+    sourceWidth: 3840,
+    aspectRatio: 3330 / 1850,
+    breakpoints: [1024, 1366, 1920, 3840],
+    backgroundColor: '#dddddd',
+    layout: 'fullWidth',
     options: {
       fitIn: true,
     },
   },
-  'product.details': {
+  'carousel.mobile': {
     sourceWidth: 720,
-    aspectRatio: 1,
+    aspectRatio: 411 / 576,
     breakpoints: [250, 360, 480, 720],
-    layout: 'constrained',
+    backgroundColor: '#dddddd',
+    layout: 'fullWidth',
     options: {
       fitIn: true,
     },
