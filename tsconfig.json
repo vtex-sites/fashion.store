@@ -1,0 +1,16 @@
+{
+  "extends": "@vtex/tsconfig",
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "module": "ESNext",
+    "rootDir": "src",
+    "baseUrl": ".",
+    "types": ["react/experimental"],
+    "paths": {
+      "src/*": ["src/*"]
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules", "public"]
+}
