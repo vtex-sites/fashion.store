@@ -9,22 +9,33 @@ const Seo = lazy(
     )
 )
 
+const BagsSection = lazy(
+  () =>
+    import(
+      /* webpackMode: "eager" */
+      '../../components/sections/Bags'
+    )
+)
+
+const SummerCollectionSection = lazy(
+  () =>
+    import(
+      /* webpackMode: "eager" */
+      '../../components/sections/SummerCollection'
+    )
+)
+
+const ChooseSection = lazy(
+  () =>
+    import(
+      /* webpackMode: "eager" */
+      '../../components/sections/Choose'
+    )
+)
+
 export type Props = PageProps
 
 function View(props: Props) {
-  // Send event to analytics
-  // usePixelSendEvent(() => {
-  //   const event: PageViewData = {
-  //     pageType: 'home',
-  //     pageUrl: window.location.href,
-  //     pageTitle: document.title,
-  //     referrer: '',
-  //     accountName: process.env.GATSBY_STORE_ID!,
-  //   }
-
-  //   return { type: 'vtex:pageView', data: event }
-  // })
-
   return (
     <SuspenseList>
       {/* Seo Components */}
@@ -33,9 +44,17 @@ function View(props: Props) {
       </Suspense>
 
       {/* Visual Sections */}
-      <Suspense fallback={null}>
-        <div>TODO</div>
-      </Suspense>
+      <div className="flex flex-col">
+        <Suspense fallback={null}>
+          <span>carousel</span>
+          <BagsSection />
+          <span>shelf</span>
+          <SummerCollectionSection />
+          <span>shelf</span>
+          <span>shelf</span>
+          <ChooseSection />
+        </Suspense>
+      </div>
     </SuspenseList>
   )
 }

@@ -1,0 +1,39 @@
+.container {
+  @apply text-primary flex flex-col items-center py-8;
+}
+
+.content {
+  @apply flex flex-col items-center text-center max-w-xs;
+}
+
+.title {
+  @apply text-4xl sm:text-5xl;
+}
+
+.description {
+  @apply text-xl my-6;
+}
+
+.descriptionText {
+  @apply opacity-80;
+}
+
+.descriptionLink {
+  @apply text-pink-dark;
+}
+
+.images {
+  @apply space-y-14 sm:space-y-0 flex flex-col sm:flex-row w-full sm:items-center sm:mt-14;
+}
+
+.image {
+  @apply w-3/4 sm:w-auto;
+}
+
+.imageLeft {
+  @apply w-full sm:h-3/4 flex justify-start sm:justify-center;
+}
+
+.imageRight {
+  @apply w-full flex justify-end sm:justify-center;
+}

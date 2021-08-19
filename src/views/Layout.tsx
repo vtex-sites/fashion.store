@@ -31,13 +31,13 @@ function Layout({ children }: PropsWithChildren<unknown>) {
 
   return (
     <SuspenseList revealOrder="together">
-      <Suspense fallback={null}>
+      <Suspense fallback={<div className="h-14" />}>
         <Navbar />
       </Suspense>
       <Suspense fallback={null}>
         <main>{children}</main>
       </Suspense>
-      <Suspense fallback={null}>
+      <Suspense fallback={<div className="h-14" />}>
         <Footer />
       </Suspense>
       <Suspense fallback={null}>{displayMinicart && <CartSidebar />}</Suspense>
