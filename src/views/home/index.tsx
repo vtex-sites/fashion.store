@@ -33,7 +33,7 @@ const ChooseSection = lazy(
     )
 )
 
-const Carousel = lazy(
+const CarouselSection = lazy(
   () =>
     import(
       /* webpackMode: "eager" */
@@ -54,7 +54,7 @@ function View(props: Props) {
       {/* Visual Sections */}
       <div className="flex flex-col">
         <Suspense fallback={null}>
-          <Carousel
+          <CarouselSection
             title="I'm looking for awesome styles for:"
             links={[
               {
