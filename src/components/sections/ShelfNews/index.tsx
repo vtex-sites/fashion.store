@@ -3,27 +3,29 @@ import type { FC } from 'react'
 import { Carousel as UIShelf } from '@vtex/store-ui'
 import { useGetThumborImageData } from '@vtex/gatsby-plugin-thumbor'
 import { withArtDirection, GatsbyImage } from 'gatsby-plugin-image'
+import ProductSummary from 'src/components/product/ProductSummary'
+import type { ProductSummary_ProductFragment } from 'src/components/product/ProductSummary/__generated__/ProductSummary_product.graphql'
 import imagesConf from 'src/images/config'
 
 import * as styles from './ShelfNews.module.css'
 
 interface Props {
-  items: string[]
-  itemsPerPage: number[]
+  products?: ProductSummary_ProductFragment[] | any
+  productsPerPage: number[]
   title?: string
 }
 
 const ShelfNews: FC<Props & React.HTMLProps<HTMLDivElement>> = ({
   className,
-  items,
-  itemsPerPage,
+  products,
+  productsPerPage,
   title,
 }) => {
   const mediaItemsPerPage = window.matchMedia('(min-width: 640px)')
-    ? itemsPerPage[1]
-    : itemsPerPage[0]
+    ? productsPerPage[1]
+    : productsPerPage[0]
 
-  const pagesNumber = Math.ceil(items.length / mediaItemsPerPage)
+  const pagesNumber = Math.ceil(products.length / mediaItemsPerPage)
 
   const getThumborImageData = useGetThumborImageData()
 
@@ -50,13 +52,17 @@ const ShelfNews: FC<Props & React.HTMLProps<HTMLDivElement>> = ({
 
             return (
               <section className="flex flex-col wrap" key={page}>
-                {items
+                {products
                   .slice(firstItem, firstItem + mediaItemsPerPage)
-                  .map((value) => (
-                    <div key={value} className="h-96 text-center text-2xl">
-                      {value}
-                    </div>
-                  ))}
+                  .map(
+                    (product: ProductSummary_ProductFragment, idx: number) => (
+                      <ProductSummary
+                        key={idx}
+                        product={product}
+                        variant="advanced"
+                      />
+                    )
+                  )}
               </section>
             )
           })}
