@@ -65,8 +65,8 @@ function Footer() {
         className={styles.newsletterContainer}
         id="newsletter-input-mobile"
       />
-      {/* <div className={styles.container}>
-        <div className={styles.desktopHidden}>
+      <div className={styles.container}>
+        {/* <div className={styles.desktopHidden}>
           <ColumnMobile links={aboutUs} />
           <ColumnMobile links={needHelp} />
           <ColumnMobile links={customerServices} />
@@ -78,7 +78,7 @@ function Footer() {
             <Column links={customerServices} />
             <Newsletter id="newsletter-input-desktop" />
           </div>
-        </div>
+        </div> */}
         <div className={styles.containerBottom}>
           <Icon component={<Cards />} className="md:hidden w-80 h-8" />
           <div className="flex justify-center mb-3 mt-10 md:my-0 md:justify-start md:w-1/3">
@@ -115,7 +115,7 @@ function Footer() {
             </a>
           </div>
         </div>
-      </div> */}
+      </div>
     </footer>
   )
 }
