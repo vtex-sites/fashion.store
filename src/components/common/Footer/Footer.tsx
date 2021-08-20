@@ -65,7 +65,7 @@ function Footer() {
         className={styles.newsletterContainer}
         id="newsletter-input-mobile"
       />
-      <div className={styles.container}>
+      {/* <div className={styles.container}>
         <div className={styles.desktopHidden}>
           <ColumnMobile links={aboutUs} />
           <ColumnMobile links={needHelp} />
@@ -115,7 +115,7 @@ function Footer() {
             </a>
           </div>
         </div>
-      </div>
+      </div> */}
     </footer>
   )
 }
