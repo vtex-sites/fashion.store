@@ -15,6 +15,8 @@ export default function ImageGallery(props: Props) {
     <img
       src={image.images.fallback?.src}
       alt="Test"
+      width={image.width}
+      height={image.height}
       className={styles.image}
       style={{ aspectRatio: '1000 / 1177' }}
       loading={idx === 0 ? 'eager' : 'lazy'}
