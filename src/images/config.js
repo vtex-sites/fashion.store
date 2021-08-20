@@ -80,9 +80,9 @@ module.exports = {
     },
   },
   'galleryImage.desktop': {
-    sourceWidth: 1000,
-    aspectRatio: 1000 / 1177,
-    breakpoints: [250, 360, 480, 720, 1000],
+    sourceWidth: 720,
+    aspectRatio: 720 / 848,
+    breakpoints: [720],
     layout: 'fullWidth',
     backgroundColor: '#dddddd',
     options: {
@@ -92,7 +92,7 @@ module.exports = {
   'galleryImage.mobile': {
     sourceWidth: 360,
     aspectRatio: 360 / 424,
-    breakpoints: [250, 360, 480, 720],
+    breakpoints: [360],
     layout: 'fullWidth',
     backgroundColor: '#dddddd',
     options: {
