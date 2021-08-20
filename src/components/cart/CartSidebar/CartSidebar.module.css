@@ -20,7 +20,7 @@
 }
 
 .main {
-  @apply flex items-center justify-center;
+  @apply flex flex-col items-start justify-start overflow-y-auto;
   @apply flex-grow;
 }
 

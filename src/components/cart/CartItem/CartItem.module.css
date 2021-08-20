@@ -1,0 +1,43 @@
+.container {
+  @apply pt-4 pb-6 px-3 flex items-stretch w-full;
+}
+
+.imageContainer {
+  @apply w-28;
+}
+
+.image {
+  @apply w-24;
+}
+
+.trashIcon {
+  @apply self-start;
+}
+
+.brand {
+  @apply text-xs uppercase text-gray-400 my-1;
+}
+
+.name {
+  @apply text-xs uppercase text-primary font-bold my-1;
+}
+
+.facet {
+  @apply text-sm capitalize my-1 text-gray-400;
+}
+
+.price {
+  @apply text-primary font-sans block text-base font-bold;
+}
+
+.quantitySelect {
+  @apply w-16 h-10 border-[1px] border-gray-200;
+}
+
+.offer {
+  @apply flex flex-grow;
+}
+
+.offerBlock {
+  @apply flex-col flex-stretch flex-grow;
+}
