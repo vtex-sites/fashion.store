@@ -25,6 +25,7 @@ module.exports = {
         primary: generateColors(COLORS.PRIMARY),
         pink: generateColors(COLORS.PINK),
         gray: generateColors(COLORS.GRAY),
+        blue: generateColors(COLORS.BLUE),
       },
     },
   },
