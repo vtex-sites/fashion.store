@@ -68,7 +68,7 @@ function View({ product: serverData, site }: Props) {
       </Suspense>
 
       {/* Visual Sections */}
-      <div className="flex">
+      <div className="flex flex-col sm:flex-row">
         <Suspense fallback={null}>
           <ImageGallery images={images} alt={product.productName ?? ''} />
         </Suspense>
