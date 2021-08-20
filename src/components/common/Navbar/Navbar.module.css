@@ -1,11 +1,11 @@
 .root {
-  @apply absolute sm:fixed left-0 top-0 right-0 z-40 sm:py-8 sm:pl-8 py-5 pl-4 pr-8 text-white bg-transparent sm:bg-primary sm:h-24;
+  @apply absolute sm:fixed left-0 top-0 right-0 z-50 sm:py-8 sm:pl-8 py-5 pl-4 pr-8 text-white bg-transparent sm:bg-primary;
   @apply flex sm:flex-row flex-col sm:items-center items-start justify-between;
   transition: background-color 0.35s ease-in;
 }
 
 .transparentMode {
-  @apply sm:bg-transparent sm:h-32;
+  @apply sm:bg-transparent;
 }
 
 .navbarSection {
