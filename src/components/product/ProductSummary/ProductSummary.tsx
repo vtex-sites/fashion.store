@@ -8,7 +8,6 @@ import WishlistIcon from 'src/components/common/WishlistIcon/WishlishIcon'
 import imageConf from 'src/images/config'
 
 import type { ProductSummary_ProductFragment } from './__generated__/ProductSummary_product.graphql'
-import './ProductSummary.module.css'
 
 interface Props {
   product?: ProductSummary_ProductFragment
