@@ -7,11 +7,11 @@
 }
 
 [data-p-s-advanced-container] {
-  @apply px-4 py-3 relative;
+  @apply mx-4 py-3 relative;
 }
 
 [data-p-s-image-container] {
-  @apply relative flex flex-col justify-center bg-gray-200;
+  @apply relative flex flex-col justify-center bg-gray-200 max-w-[300px];
 }
 
 [data-p-s-image] {
@@ -19,7 +19,7 @@
 }
 
 [data-p-s-badge] {
-  @apply absolute top-0 right-0 px-2 bg-pink text-xs text-white;
+  @apply absolute top-0 right-0 px-2 bg-pink-dark text-sm text-white font-bold;
 }
 
 [data-p-s-simple-info-container] {

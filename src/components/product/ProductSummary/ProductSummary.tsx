@@ -127,8 +127,6 @@ function ProductSummary({ product, variant = 'simple' }: Props) {
   const image = useThumborImageData({
     ...imageConf['product.summary'],
     baseUrl: product?.items?.[0]?.images?.[0]?.imageUrl ?? '',
-    width: 300,
-    height: 300,
   })
 
   const sellingPrice = product?.items?.[0]?.sellers?.[0]?.commertialOffer?.Price
