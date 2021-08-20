@@ -22,7 +22,7 @@ function CartSidebar() {
 
         <main className={styles.main}>
           {isEmpty ? (
-            <span>Your cart is empty.</span>
+            <span className={styles.empty}>Your cart is empty.</span>
           ) : (
             <>
               {items.map((item) => (

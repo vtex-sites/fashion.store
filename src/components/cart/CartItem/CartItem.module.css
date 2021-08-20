@@ -39,5 +39,5 @@
 }
 
 .offerBlock {
-  @apply flex-col flex-stretch flex-grow;
+  @apply flex-col flex-grow;
 }

@@ -1,9 +1,9 @@
-import React, { useCallback } from 'react'
-import type { CartItem as ICartItem } from '@vtex/store-sdk'
+import React from 'react'
 import { useCart } from '@vtex/store-sdk'
 import { Price } from '@vtex/store-ui'
 import { Trash2 as TrashIcon } from 'react-feather'
 import { useFormattedPrice } from 'src/sdk/price/useFormattedPrice'
+import type { CartItem as ICartItem } from '@vtex/store-sdk'
 
 import * as styles from './CartItem.module.css'
 
@@ -23,27 +23,8 @@ interface Props {
 
 const quantity = Array(10).fill(true)
 
-const useRemoveButton = (item: ICartItem | null | undefined) => {
-  const { removeItem } = useCart()
-
-  const onClick = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-      e.preventDefault()
-
-      if (!item) {
-        return
-      }
-
-      removeItem(item.id)
-    },
-    [item, removeItem]
-  )
-
-  return { onClick }
-}
-
 function CartItem({ item }: Props) {
-  const { updateItemQuantity } = useCart()
+  const { updateItemQuantity, removeItem } = useCart()
   const {
     image,
     brand,
@@ -52,8 +33,6 @@ function CartItem({ item }: Props) {
     quantity: { selling },
     price,
   } = item
-
-  const removeBtn = useRemoveButton(item)
 
   return (
     <div className={styles.container}>
@@ -102,7 +81,10 @@ function CartItem({ item }: Props) {
         </div>
         <button
           className={styles.trashIcon}
-          {...removeBtn}
+          onClick={(e) => {
+            e.preventDefault()
+            removeItem(item.id)
+          }}
           aria-label="remove from cart"
         >
           <TrashIcon />
