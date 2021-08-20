@@ -1,4 +1,6 @@
+import { useLocation } from '@reach/router'
 import { graphql } from 'gatsby'
+import queryString from 'query-string'
 import React, { lazy, Suspense, SuspenseList } from 'react'
 
 import { useImageGallery } from './hooks/useImageGallery'
@@ -36,6 +38,9 @@ interface Props {
 }
 
 function View({ product: serverData, site }: Props) {
+  const location = useLocation()
+  const { skuId } = queryString.parse(location.search)
+
   /**
    * serverProduct data is stale and incomplete (because we SSRed it).
    * Let's use it's value as placeholder while we fetch the rest of the data
@@ -47,10 +52,9 @@ function View({ product: serverData, site }: Props) {
   )
 
   const product = data?.vtex.product
+  const images = useImageGallery({ product, skuId: skuId as string })
 
   // useProductPixelEffect({ product: { id: product?.id ?? 'unknown' } })
-
-  const images = useImageGallery({ product, skuId: '142' })
 
   if (product == null) {
     return null
