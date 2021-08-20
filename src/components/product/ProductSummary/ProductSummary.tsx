@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react'
 import { graphql } from 'gatsby'
 import { Button, Icon, Price } from '@vtex/store-ui'
+import type { IGatsbyImageData } from 'gatsby-plugin-image'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { useThumborImageData } from '@vtex/gatsby-plugin-thumbor'
 import WishlistIcon from 'src/components/common/WishlistIcon/WishlishIcon'
@@ -14,6 +15,12 @@ interface Props {
   variant?: 'simple' | 'advanced'
 }
 
+interface VariantProps {
+  product?: Props['product']
+  image: IGatsbyImageData
+  discount: number
+}
+
 function usePriceFormatter(price: number) {
   return useMemo(() => {
     const formattedPrice = new Intl.NumberFormat('en-GB', {
@@ -25,16 +32,15 @@ function usePriceFormatter(price: number) {
   }, [price])
 }
 
-function ProductSummarySimple({ product }: Props) {
-  const image = useThumborImageData({
-    ...imageConf['product.summary'],
-    baseUrl: product?.items?.[0]?.images?.[0]?.imageUrl ?? '',
-  })
+function discountFormatter(discount: number) {
+  return `-${discount.toFixed(0)}%`
+}
 
+function ProductSummarySimple({ product, image, discount }: VariantProps) {
   return (
     <div
       data-store-p-s-container
-      className="px-28 pb-2 h-full inline-flex flex-col relative"
+      className="px-28 h-full inline-flex flex-col relative"
     >
       <div
         data-store-p-s-image-container
@@ -47,12 +53,18 @@ function ProductSummarySimple({ product }: Props) {
           data-store-p-s-image
           className="max-w-full max-h-full w-auto"
         />
-        <div
-          data-store-p-s-badge
-          className="absolute top-0 right-0 px-2 bg-pink-600 text-xs text-white"
-        >
-          -39%
-        </div>
+        {discount !== 0 ? (
+          <div
+            data-store-p-s-badge
+            className="absolute top-0 right-0 px-2 bg-pink-600 text-xs text-white"
+          >
+            <Price
+              value={discount}
+              variant="savings"
+              formatter={discountFormatter}
+            />
+          </div>
+        ) : null}
       </div>
       <div
         data-store-p-s-info-container
@@ -103,16 +115,94 @@ function ProductSummarySimple({ product }: Props) {
   )
 }
 
-function ProductSummaryAdvanced({ product }: Props) {
-  return null
+function ProductSummaryAdvanced({ product, image, discount }: VariantProps) {
+  return (
+    <>
+      <div
+        data-store-p-s-container
+        className="px-12 h-full inline-flex flex-col relative"
+      >
+        <div
+          data-store-p-s-image-container
+          className="h-72 w-72 relative flex flex-col justify-center"
+        >
+          <GatsbyImage
+            alt={product?.items?.[0]?.images?.[0]?.imageText ?? ''}
+            image={image}
+            objectFit="contain"
+            data-store-p-s-image
+            className="max-w-full max-h-full w-auto"
+          />
+          {discount !== 0 ? (
+            <div
+              data-store-p-s-badge
+              className="absolute top-0 right-0 px-2 bg-pink-600 text-xs text-white"
+            >
+              <Price
+                value={discount}
+                variant="savings"
+                formatter={discountFormatter}
+              />
+            </div>
+          ) : null}
+        </div>
+
+        <Button
+          data-store-p-s-wishlist-button
+          className="rounded-full absolute p-2 bg-white left-8 top-6"
+        >
+          <Icon
+            data-store-p-s-wishlist-icon
+            component={<WishlistIcon />}
+            className="text-gray-500"
+          />
+        </Button>
+      </div>
+      <div
+        data-store-p-s-info-container
+        className="px-6 w-72 relative flex flex-col justify-center"
+      >
+        <span className="break-all mt-6 mb-4">{product?.productName}</span>
+        <Button className="rounded-full border-t border-l border-r border-b border-black bg-gray-50 h-6 w-6" />
+        <Price
+          value={product?.items?.[0]?.sellers?.[0]?.commertialOffer?.Price ?? 0}
+          formatter={usePriceFormatter}
+          variant="selling"
+        />
+      </div>
+    </>
+  )
 }
 
-function ProductSummary({ product, variant }: Props) {
-  if (variant === 'advanced') {
-    return <ProductSummaryAdvanced product={product} />
+function ProductSummary({ product, variant = 'simple' }: Props) {
+  const image = useThumborImageData({
+    ...imageConf['product.summary'],
+    baseUrl: product?.items?.[0]?.images?.[0]?.imageUrl ?? '',
+  })
+
+  const sellingPrice = product?.items?.[0]?.sellers?.[0]?.commertialOffer?.Price
+  const listingPrice =
+    product?.items?.[0]?.sellers?.[0]?.commertialOffer?.ListPrice
+
+  let discount = 0
+
+  if (sellingPrice && listingPrice) {
+    discount = Math.floor((1 - sellingPrice / listingPrice) * 100)
   }
 
-  return <ProductSummarySimple product={product} />
+  if (variant === 'simple') {
+    return (
+      <ProductSummaryAdvanced
+        image={image}
+        discount={discount}
+        product={product}
+      />
+    )
+  }
+
+  return (
+    <ProductSummarySimple image={image} discount={discount} product={product} />
+  )
 }
 
 export const fragment = graphql`
