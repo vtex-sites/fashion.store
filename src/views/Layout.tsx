@@ -26,11 +26,22 @@ const CartSidebar = lazy(
     )
 )
 
+const MenuSidebar = lazy(
+  () =>
+    import(
+      /* webpackMode: "eager" */
+      'src/components/common/MenuSidebar'
+    )
+)
+
 function Layout({ children }: PropsWithChildren<unknown>) {
-  const { displayMinicart } = useGlobalUIState()
+  const { displayMinicart, displayMenuSidebar } = useGlobalUIState()
 
   return (
     <SuspenseList revealOrder="together">
+      <Suspense fallback={null}>
+        {displayMenuSidebar && <MenuSidebar />}
+      </Suspense>
       <Suspense fallback={<div className="h-14" />}>
         <Navbar />
       </Suspense>

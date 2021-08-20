@@ -1,0 +1,4 @@
+.root {
+  @apply uppercase cursor-pointer hover:text-pink;
+  @apply sm:text-2xl text-xs sm:leading-loose leading-10;
+}
