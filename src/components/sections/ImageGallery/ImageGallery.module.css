@@ -1,0 +1,15 @@
+.container {
+  @apply w-full sm:w-2/3;
+}
+
+.onlyDesktop {
+  @apply hidden sm:block;
+}
+
+.onlyMobile {
+  @apply sm:hidden block;
+}
+
+.image {
+  @apply w-full;
+}

@@ -79,4 +79,24 @@ module.exports = {
       fitIn: true,
     },
   },
+  'galleryImage.desktop': {
+    sourceWidth: 720,
+    aspectRatio: 720 / 848,
+    breakpoints: [720],
+    layout: 'fullWidth',
+    backgroundColor: '#dddddd',
+    options: {
+      fitIn: true,
+    },
+  },
+  'galleryImage.mobile': {
+    sourceWidth: 720,
+    aspectRatio: 720 / 848,
+    breakpoints: [360, 720],
+    layout: 'fullWidth',
+    backgroundColor: '#dddddd',
+    options: {
+      fitIn: true,
+    },
+  },
 }
