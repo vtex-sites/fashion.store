@@ -99,4 +99,13 @@ module.exports = {
       fitIn: true,
     },
   },
+  'product.summary': {
+    sourceWidth: 480,
+    aspectRatio: 1,
+    layout: 'constrained',
+    breakpoints: [250, 360, 480],
+    options: {
+      fitIn: true,
+    },
+  },
 }
