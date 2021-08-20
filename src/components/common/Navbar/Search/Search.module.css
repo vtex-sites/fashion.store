@@ -4,7 +4,7 @@
 }
 
 .input {
-  @apply bg-transparent pl-4 outline-none text-gray w-full sm:w-auto;
+  @apply bg-transparent pl-4 outline-none text-white w-full sm:w-auto;
 }
 
 .iconContainer {
