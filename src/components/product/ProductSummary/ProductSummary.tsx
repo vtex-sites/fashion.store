@@ -1,5 +1,6 @@
-import React, { useMemo } from 'react'
-import { graphql } from 'gatsby'
+import type { PropsWithChildren } from 'react'
+import React, { Fragment, useMemo } from 'react'
+import { graphql, Link } from 'gatsby'
 import { Button, Icon, Price } from '@vtex/store-ui'
 import type { IGatsbyImageData } from 'gatsby-plugin-image'
 import { GatsbyImage } from 'gatsby-plugin-image'
@@ -189,18 +190,32 @@ function ProductSummary({ product, variant = 'simple' }: Props) {
     discount = Math.floor((1 - sellingPrice / listingPrice) * 100)
   }
 
+  const Wrapper = product?.linkText
+    ? ({ children }: PropsWithChildren<unknown>) => (
+        <Link to={product?.linkText ?? ''}>{children}</Link>
+      )
+    : Fragment
+
   if (variant === 'advanced') {
     return (
-      <ProductSummaryAdvanced
-        image={image}
-        discount={discount}
-        product={product}
-      />
+      <Wrapper>
+        <ProductSummaryAdvanced
+          image={image}
+          discount={discount}
+          product={product}
+        />
+      </Wrapper>
     )
   }
 
   return (
-    <ProductSummarySimple image={image} discount={discount} product={product} />
+    <Wrapper>
+      <ProductSummarySimple
+        image={image}
+        discount={discount}
+        product={product}
+      />
+    </Wrapper>
   )
 }
 
@@ -208,6 +223,7 @@ export const fragment = graphql`
   fragment ProductSummary_product on VTEX_Product {
     productId
     productName
+    linkText
     items {
       itemId
       name
