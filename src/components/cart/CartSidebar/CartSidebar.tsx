@@ -15,7 +15,7 @@ function CartSidebar() {
   return (
     <Drawer isOpen onClose={closeMinicart} variant="cart" placement="right">
       <div className={styles.container}>
-        <header className={styles.header}>
+        <header>
           <X className={styles.x} onClick={closeMinicart} />
           <div className={styles.title}>Cart</div>
         </header>

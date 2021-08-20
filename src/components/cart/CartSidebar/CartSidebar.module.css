@@ -10,10 +10,6 @@
   @apply p-0 h-full flex flex-col;
 }
 
-.header {
-
-}
-
 .x {
   @apply h-14 w-14 p-3 text-gray-400 cursor-pointer;
 }
