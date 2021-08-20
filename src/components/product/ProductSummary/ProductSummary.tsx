@@ -23,12 +23,10 @@ interface VariantProps {
 
 function usePriceFormatter(price: number) {
   return useMemo(() => {
-    const formattedPrice = new Intl.NumberFormat('en-GB', {
+    return new Intl.NumberFormat('en-GB', {
       style: 'currency',
       currency: 'GBP',
     }).format(price)
-
-    return formattedPrice
   }, [price])
 }
 
