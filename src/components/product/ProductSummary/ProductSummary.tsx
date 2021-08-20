@@ -1,11 +1,11 @@
 import type { PropsWithChildren } from 'react'
 import React, { Fragment, useMemo } from 'react'
+import { Heart } from 'react-feather'
 import { graphql, Link } from 'gatsby'
 import { Button, Icon, Price } from '@vtex/store-ui'
 import type { IGatsbyImageData } from 'gatsby-plugin-image'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { useThumborImageData } from '@vtex/gatsby-plugin-thumbor'
-import WishlistIcon from 'src/components/common/WishlistIcon/WishlishIcon'
 import imageConf from 'src/images/config'
 
 import type { ProductSummary_ProductFragment } from './__generated__/ProductSummary_product.graphql'
@@ -77,7 +77,7 @@ function ProductSummarySimple({ product, image, discount }: VariantProps) {
       </div>
 
       <Button data-p-s-simple-wishlist-button aria-label="Add to wishlist">
-        <Icon data-p-s-wishlist-icon component={<WishlistIcon />} />
+        <Icon data-p-s-wishlist-icon component={<Heart />} />
       </Button>
       <div data-p-s-bg />
     </div>
@@ -107,7 +107,7 @@ function ProductSummaryAdvanced({ product, image, discount }: VariantProps) {
         </div>
 
         <Button data-p-s-advanced-wishlist-button aria-label="Add to wishlist">
-          <Icon data-p-s-wishlist-icon component={<WishlistIcon />} />
+          <Icon data-p-s-wishlist-icon component={<Heart />} />
         </Button>
       </div>
       <div data-p-s-advanced-info-container>
