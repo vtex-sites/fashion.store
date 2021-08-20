@@ -20,13 +20,20 @@ export const useImageGallery = (props: Props) => {
   )
 
   return useMemo(
-    () =>
-      items.map((item) =>
+    () => ({
+      desktop: items.map((item) =>
         getThumborImageData({
           baseUrl: item?.imageUrl ?? '',
-          ...imagesConf['product.galleryImage'],
+          ...imagesConf['galleryImage.desktop'],
         })
       ),
+      mobile: items.map((item) =>
+        getThumborImageData({
+          baseUrl: item?.imageUrl ?? '',
+          ...imagesConf['galleryImage.mobile'],
+        })
+      ),
+    }),
     [getThumborImageData, items]
   )
 }
