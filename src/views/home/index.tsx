@@ -1,5 +1,4 @@
 import React, { lazy, Suspense, SuspenseList } from 'react'
-import ProductSummary from 'src/components/product/ProductSummary'
 import type { Props as PageProps } from 'src/pages/index'
 
 const Seo = lazy(
@@ -97,12 +96,6 @@ function View(props: Props) {
           {/* <span>shelf</span>
           <span>shelf</span> */}
           <ChooseSection />
-        </Suspense>
-
-        <Suspense fallback={null}>
-          <ProductSummary
-            product={props.data?.vtex?.products?.[0] ?? undefined}
-          />
         </Suspense>
       </SuspenseList>
     </div>
