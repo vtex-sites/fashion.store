@@ -10,6 +10,10 @@
   @apply p-0 h-full flex flex-col;
 }
 
+.empty {
+  @apply flex h-screen w-full items-center flex-row justify-center;
+}
+
 .closeIcon {
   @apply h-14 w-14 p-3 text-gray-400 cursor-pointer;
 }
@@ -20,7 +24,7 @@
 }
 
 .main {
-  @apply flex items-center justify-center;
+  @apply flex flex-col items-start justify-start overflow-y-auto;
   @apply flex-grow;
 }
 

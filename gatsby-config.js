@@ -41,7 +41,7 @@ module.exports = {
     siteUrl,
   },
   flags: {
-    DEV_SSR: true,
+    DEV_SSR: false,
     FAST_DEV: true,
     LMDB_STORE: false,
     PARALLEL_SOURCING: true,

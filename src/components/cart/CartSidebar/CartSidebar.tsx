@@ -22,13 +22,28 @@ function CartSidebar() {
 
         <main className={styles.main}>
           {isEmpty ? (
-            <span>Your cart is empty.</span>
+            <span className={styles.empty}>Your cart is empty.</span>
           ) : (
-            <div>
+            <>
               {items.map((item) => (
-                <CartItem key={item.id} item={item} />
+                <CartItem
+                  key={item.id}
+                  item={{
+                    ...item,
+                    name: 'name',
+                    brand: 'brand',
+                    facets: [
+                      { key: 'color', value: 'todo' },
+                      { key: 'size', value: 'todo' },
+                    ],
+                    image: {
+                      src: 'https://fashioneurope.vtexassets.com/arquivos/ids/155504-192-auto',
+                      alt: 'todo',
+                    },
+                  }}
+                />
               ))}
-            </div>
+            </>
           )}
         </main>
 
