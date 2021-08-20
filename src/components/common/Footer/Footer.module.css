@@ -1,0 +1,64 @@
+.footer {
+  @apply h-[408px] md:h-96
+}
+
+.container {
+  @apply bg-[#152032] py-12 px-6 h-full md:pt-16 md:px-28 md:pb-10
+}
+
+.column {
+  @apply w-3/12
+}
+
+.heading {
+  @apply text-white uppercase w-full flex items-center min-h-[48px]
+}
+
+.heading a {
+  @apply text-[#8e95a7] uppercase mb-6
+}
+
+a {
+  @apply text-white font-normal text-xs my-2 uppercase md:normal-case
+}
+
+.form {
+  @apply text-white border-b border-[#152032] font-semibold pb-2 leading-[56px] text-4xl text-center;
+  @apply md:border-white md:font-bold md:leading-8 md:text-2xl md:text-left
+}
+
+.subtitle {
+  @apply text-white my-6 text-xs leading-5 font-normal text-center max-w-xs md:text-[#A1A8B3] md:text-left
+}
+
+.input {
+  @apply flex pb-2 pt-5 text-[#152032]
+}
+
+[data-store-input] {
+  @apply bg-[#A1A8B3] md:bg-[#152032] text-[#152032] md:text-white placeholder-[#152032] md:placeholder-white text-xs w-3/4
+}
+
+.input button {
+  @apply pl-3 text-white md:text-[#ff4281] uppercase text-xs font-medium
+}
+
+.containerBottom {
+  @apply text-[#A1A8B3] text-xs font-normal mt-12 items-center md:flex
+}
+
+.social {
+  @apply flex justify-center md:w-1/3
+}
+
+.mobileHidden {
+  @apply hidden md:contents
+}
+
+.desktopHidden {
+  @apply contents md:hidden
+}
+
+.newsletterContainer {
+  @apply flex bg-[#A1A8B3] md:hidden py-24 px-7
+}
