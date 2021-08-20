@@ -1,15 +1,22 @@
-import React from 'react'
+import { Button, Input, Price } from '@vtex/store-ui'
+import clsx from 'clsx'
 import { graphql } from 'gatsby'
-import type { ProductDetailsFragment_ProductFragment } from 'src/views/product/__generated__/ProductViewFragment_product.graphql'
+import { default as React } from 'react'
 import { useBuyButton } from 'src/sdk/buy/useBuyButton'
+import { useFormattedPrice } from 'src/sdk/price/useFormattedPrice'
+import type { ProductViewFragment_ProductFragment } from 'src/views/product/__generated__/ProductViewFragment_product.graphql'
+
+import * as styles from './ProductDetails.module.css'
 
 interface Props {
-  product: ProductDetailsFragment_ProductFragment
+  product: ProductViewFragment_ProductFragment
 }
 
 function ProductDetails({ product }: Props) {
   const item = product.items?.[0]
   const offer = item?.sellers?.[0]?.commercialOffer
+  const itemSelected = product?.items![0]
+
   const btnProps = useBuyButton(
     offer && {
       id: product.id!,
@@ -34,10 +41,40 @@ function ProductDetails({ product }: Props) {
   )
 
   return (
-    <>
-      <h1>{product.productName}</h1>
-      <button {...btnProps}>Buy Now</button>
-    </>
+    <div className={styles.container}>
+      <div className={styles.info}>
+        <div>
+          <span className={clsx(styles.label, styles.brand)}>
+            {product.brand}
+          </span>
+          <span className={styles.label}>REFERENCE: {itemSelected?.ean}</span>
+        </div>
+        <h1 className={styles.title}>{product.productName}</h1>
+        <Price
+          className={styles.price}
+          formatter={useFormattedPrice}
+          value={offer?.listPrice ?? 0}
+        />
+      </div>
+      <Button {...btnProps} className={styles.addToCart}>
+        Add to Cart
+      </Button>
+      <div className="flex flex-col">
+        <span className="text-primary text-xl mb-4">Delivery & pick-up</span>
+        <form className="flex items-center">
+          <Input
+            placeholder="Type your postal code"
+            className="border-b w-full py-2 h-12"
+          />
+          <Button className="pl-2 uppercase text-gray-600 h-12 w-12 justify-center flex items-center">
+            Ok
+          </Button>
+        </form>
+        <Button className="bg-pink-50 text-pink-dark py-3 uppercase mt-8">
+          Or choose store
+        </Button>
+      </div>
+    </div>
   )
 }
 
