@@ -12,7 +12,11 @@ function Navlinks() {
       <span className={styles.languageSelector}>UK</span>
       <Heart className={`${styles.navlink} ${styles.wishListNav}`} />
       <User className={`${styles.navlink} ${styles.userNav}`} />
-      <button className={styles.cart} onClick={openMinicart}>
+      <button
+        aria-label="open cart"
+        className={styles.cart}
+        onClick={openMinicart}
+      >
         <ShoppingCart className={styles.navlink} />
       </button>
     </nav>
