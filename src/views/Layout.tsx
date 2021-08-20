@@ -21,7 +21,7 @@ const Footer = lazy(
 const CartSidebar = lazy(
   () =>
     import(
-      /* webpackMode: "eager" */
+      /* webpackMode: "lazy" */
       'src/components/cart/CartSidebar'
     )
 )
@@ -29,7 +29,7 @@ const CartSidebar = lazy(
 const MenuSidebar = lazy(
   () =>
     import(
-      /* webpackMode: "eager" */
+      /* webpackMode: "lazy" */
       'src/components/common/MenuSidebar'
     )
 )
