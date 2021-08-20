@@ -11,7 +11,6 @@ function Navbar() {
     <header className={styles.root}>
       <div className={`${styles.navbarSection} ${styles.leftSection}`}>
         <Menu className={styles.menu} color="white" />
-
         <Logo />
       </div>
       <div className={styles.navbarSection}>

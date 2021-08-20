@@ -71,10 +71,10 @@ module.exports = {
     },
   },
   'home.logo': {
-    sourceWidth: 220,
+    sourceWidth: 200,
     aspectRatio: 10,
-    breakpoints: [220, 150],
-    layout: 'fullWidth',
+    layout: 'constrained',
+    breakpoints: [150, 200],
     options: {
       fitIn: true,
     },

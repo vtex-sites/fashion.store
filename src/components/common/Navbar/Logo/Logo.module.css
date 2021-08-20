@@ -3,14 +3,5 @@
 }
 
 .image {
-  @apply block;
-  height: 15px;
-  width: 150px;
-}
-
-@media (min-width: 640px) {
-  .image {
-    height: 20px;
-    width: 200px;
-  }
+  @apply block mt-1 h-[15px] w-[150px] sm:mt-[2px] sm:h-[20px] sm:w-[200px];
 }
