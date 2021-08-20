@@ -188,7 +188,7 @@ function ProductSummary({ product, variant = 'simple' }: Props) {
     discount = Math.floor((1 - sellingPrice / listingPrice) * 100)
   }
 
-  if (variant === 'simple') {
+  if (variant === 'advanced') {
     return (
       <ProductSummaryAdvanced
         image={image}
