@@ -45,13 +45,13 @@ function Layout({ children }: PropsWithChildren<unknown>) {
       <Suspense fallback={null}>
         <Navbar />
       </Suspense>
+      <Suspense fallback={null}>{displayMinicart && <CartSidebar />}</Suspense>
       <Suspense fallback={null}>
         <main className="min-h-screen">{children}</main>
       </Suspense>
       <Suspense fallback={<div className="h-14" />}>
         <Footer />
       </Suspense>
-      <Suspense fallback={null}>{displayMinicart && <CartSidebar />}</Suspense>
     </SuspenseList>
   )
 }

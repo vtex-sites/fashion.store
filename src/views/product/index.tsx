@@ -1,6 +1,7 @@
 import { graphql } from 'gatsby'
 import React, { lazy, Suspense, SuspenseList } from 'react'
 
+import { useImageGallery } from './hooks/useImageGallery'
 import { useProduct } from './hooks/useProduct'
 import type { ProductSeoFragment_SiteFragment } from './Seo/__generated__/ProductSeoFragment_site.graphql'
 import type { ProductViewFragment_ProductFragment } from './__generated__/ProductViewFragment_product.graphql'
@@ -18,6 +19,14 @@ const ProductDetails = lazy(
     import(
       /* webpackMode: "eager" */
       'src/components/sections/ProductDetails'
+    )
+)
+
+const ImageGallery = lazy(
+  () =>
+    import(
+      /* webpackMode: "eager" */
+      '../../components/sections/ImageGallery'
     )
 )
 
@@ -41,6 +50,8 @@ function View({ product: serverData, site }: Props) {
 
   // useProductPixelEffect({ product: { id: product?.id ?? 'unknown' } })
 
+  const images = useImageGallery({ product, skuId: '142' })
+
   if (product == null) {
     return null
   }
@@ -53,9 +64,14 @@ function View({ product: serverData, site }: Props) {
       </Suspense>
 
       {/* Visual Sections */}
-      <Suspense fallback={null}>
-        <ProductDetails product={product} />
-      </Suspense>
+      <div className="flex">
+        <Suspense fallback={null}>
+          <ImageGallery images={images} alt={product.productName ?? ''} />
+        </Suspense>
+        <Suspense fallback={null}>
+          <ProductDetails product={product} />
+        </Suspense>
+      </div>
     </SuspenseList>
   )
 }
