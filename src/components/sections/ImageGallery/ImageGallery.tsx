@@ -12,27 +12,19 @@ type Props = {
 }
 
 export default function ImageGallery(props: Props) {
+  const images = props.images.map((image, idx) => (
+    <GatsbyImage
+      key={`${idx}-${image.images.fallback?.src}`}
+      image={image}
+      alt={props.alt}
+    />
+  ))
+
   return (
     <>
-      <div className={clsx(styles.container, styles.onlyDesktop)}>
-        {props.images.map((image, idx) => (
-          <GatsbyImage
-            key={`${idx}-${image.images.fallback?.src}`}
-            image={image}
-            alt={props.alt}
-          />
-        ))}
-      </div>
+      <div className={clsx(styles.container, styles.onlyDesktop)}>{images}</div>
       <div className={clsx(styles.container, styles.onlyMobile)}>
-        <Carousel>
-          {props.images.map((image, idx) => (
-            <GatsbyImage
-              key={`${idx}-${image.images.fallback?.src}`}
-              image={image}
-              alt={props.alt}
-            />
-          ))}
-        </Carousel>
+        <Carousel>{images}</Carousel>
       </div>
     </>
   )
