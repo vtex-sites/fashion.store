@@ -19,7 +19,7 @@
 }
 
 [data-p-s-badge] {
-  @apply absolute top-0 right-0 px-2 bg-pink-600 text-xs text-white;
+  @apply absolute top-0 right-0 px-2 bg-pink text-xs text-white;
 }
 
 [data-p-s-simple-info-container] {
