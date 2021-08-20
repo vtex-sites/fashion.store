@@ -66,7 +66,7 @@ function Footer() {
         id="newsletter-input-mobile"
       />
       <div className={styles.container}>
-        {/* <div className={styles.desktopHidden}>
+        <div className={styles.desktopHidden}>
           <ColumnMobile links={aboutUs} />
           <ColumnMobile links={needHelp} />
           <ColumnMobile links={customerServices} />
@@ -78,8 +78,8 @@ function Footer() {
             <Column links={customerServices} />
             <Newsletter id="newsletter-input-desktop" />
           </div>
-        </div> */}
-        <div className={styles.containerBottom}>
+        </div>
+        {/* <div className={styles.containerBottom}>
           <Icon component={<Cards />} className="md:hidden w-80 h-8" />
           <div className="flex justify-center mb-3 mt-10 md:my-0 md:justify-start md:w-1/3">
             Copyright VTEX 2021 @ All rights reserved
@@ -114,7 +114,7 @@ function Footer() {
               <Icon component={<VtexLogo />} className="w-14 h-5" />
             </a>
           </div>
-        </div>
+        </div> */}
       </div>
     </footer>
   )
