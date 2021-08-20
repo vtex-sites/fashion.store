@@ -30,6 +30,14 @@ const CollectionBanner = lazy(
     )
 )
 
+const SearchFilters = lazy(
+  () =>
+    import(
+      /* webpackMode: "eager" */
+      'src/components/sections/SearchFilters'
+    )
+)
+
 interface Props extends PageProps {
   searchParams: SearchParamsState
 }
@@ -90,9 +98,12 @@ function View(props: Props) {
         </Suspense>
 
         <Suspense fallback={null}>
+          <SearchFilters facets={facets!.facets as any} />
+        </Suspense>
+
+        <Suspense fallback={null}>
           <ProductGallery
             initialData={dynamicData}
-            facets={facets!.facets as any}
             productSearch={productSearch!}
           />
         </Suspense>

@@ -64,7 +64,7 @@ export const clientSideQuery = gql`
           ...CollectionSeoFragment_breadcrumb
         }
         facets {
-          ...ProductGallery_facets
+          ...SearchFilterFragment_facets
         }
       }
     }

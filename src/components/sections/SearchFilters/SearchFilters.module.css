@@ -1,0 +1,71 @@
+.container {
+  @apply flex flex-nowrap h-14 items-center;
+  @apply justify-around;
+}
+
+.sort {
+  @apply flex items-start flex-col w-[40%];
+  @apply sm:items-center sm:flex-row sm:w-max;
+  @apply border-b-[1px] border-solid border-gray-300 sm:border-b-0;
+  @apply h-full;
+}
+
+.sort label {
+  @apply opacity-30;
+  @apply text-xs;
+  @apply sm:text-base;
+
+}
+
+.filtersButton {
+  @apply block h-full w-[40%];
+  @apply border-b-[1px] border-solid border-gray-300;
+  @apply sm:hidden;
+}
+
+[data-reach-accordion] {
+  @apply justify-around flex-grow flex-nowrap shadow-sm items-center h-full justify-around;
+  @apply hidden;
+  @apply sm:flex;
+}
+
+[data-reach-accordion-item] {
+  @apply h-full;
+}
+
+[data-reach-accordion-item] h3 {
+  @apply h-full;
+}
+
+[data-reach-accordion-button] {
+  @apply opacity-30 h-full;
+}
+
+[data-reach-accordion-button][data-state="open"] {
+  @apply opacity-100;
+}
+
+[data-reach-accordion-panel][data-state="open"] {
+  @apply absolute left-0 w-screen p-4 mt-1;
+  @apply shadow-sm z-10 bg-white;
+}
+
+[data-reach-accordion-panel] ul {
+  @apply flex flex-wrap items-center w-screen;
+}
+
+[data-reach-accordion-panel] ul li {
+  @apply cursor-pointer flex items-center max-w-[20%] w-full;
+}
+
+[data-reach-accordion-panel] ul li input {
+  @apply h-5 w-5 mr-2 appearance-none cursor-pointer;
+  @apply border-solid border-gray-300 border-[1px] rounded-sm;
+  @apply checked:text-white checked:bg-pink checked:border-transparent;
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L7 8.586 5.707 7.293z'/%3e%3c/svg%3e");
+}
+
+[data-reach-accordion-panel] ul li label {
+  @apply cursor-pointer;
+}
+

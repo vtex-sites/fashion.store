@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.221.0",
   "dependencies": {
+    "@reach/accordion": "^0.16.1",
     "@vtex/gatsby-plugin-graphql": "0.373.20",
     "@vtex/gatsby-plugin-nginx": "0.373.20",
     "@vtex/gatsby-plugin-thumbor": "0.373.20",

@@ -62,7 +62,7 @@ export const query = gql`
         removeHiddenFacets: true
       ) {
         facets {
-          ...ProductGallery_facets
+          ...SearchFilterFragment_facets
         }
       }
     }
