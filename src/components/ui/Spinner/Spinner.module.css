@@ -1,0 +1,22 @@
+.loader {
+  -webkit-animation: mySpinner 1s linear infinite;
+  animation: mySpinner 1s linear infinite;
+
+  @apply ease-linear rounded-full border-4 border-t-4 border-gray-200 h-16 w-16;
+
+  border-top-color: #f71963;
+}
+
+.container {
+  @apply flex justify-center items-center;
+}
+
+@-webkit-keyframes mySpinner {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes mySpinner {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

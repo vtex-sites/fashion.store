@@ -32,7 +32,7 @@ export type CollectionSearchQueryQuery = { vtex: { productSearch: Maybe<{ totalC
 
 export const CollectionSearchQuery = {
   query: process.env.NODE_ENV === 'production' ? undefined : "query CollectionSearchQuery($to: Int!, $from: Int!, $selectedFacets: [VTEX_SelectedFacetInput!]!, $sort: String!) {\n  vtex {\n    productSearch(\n      to: $to\n      from: $from\n      orderBy: $sort\n      selectedFacets: $selectedFacets\n      hideUnavailableItems: false\n      simulationBehavior: skip\n    ) {\n      products {\n        productId\n        productName\n      }\n      totalCount: recordsFiltered\n    }\n    facets(\n      selectedFacets: $selectedFacets\n      operator: or\n      behavior: \"Static\"\n      removeHiddenFacets: true\n    ) {\n      breadcrumb {\n        href\n        name\n      }\n      facets {\n        name\n        type\n        values {\n          key\n          name\n          value\n          selected\n          quantity\n          range {\n            from\n            to\n          }\n        }\n      }\n    }\n  }\n}\n",
-  sha256Hash: "3a437e1f052d9baa1a4091ce4f95157d6a29c0edc91d3f64e7ca797a04a5d5d4",
+  sha256Hash: "70cb4bc153445124584f6a7626ac7360aeca1241552445a8eb38a45baf802829",
   operationName: "CollectionSearchQuery",
 }
 

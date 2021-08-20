@@ -1,6 +1,6 @@
 import React, { Suspense, useMemo } from 'react'
 import Layout from 'src/views/Layout'
-import View from 'src/views/collection'
+import View, { Preview } from 'src/views/collection'
 import { graphql } from 'gatsby'
 import type { PageProps } from 'gatsby'
 import type { SearchParamsState } from '@vtex/store-sdk'
@@ -55,7 +55,7 @@ function Page(props: Props) {
 
   return (
     <Layout>
-      <Suspense fallback={<div>...loading</div>}>
+      <Suspense fallback={<Preview {...props} />}>
         <View {...props} searchParams={searchParams} />
       </Suspense>
     </Layout>
