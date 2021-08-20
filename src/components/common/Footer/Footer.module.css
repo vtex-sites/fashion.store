@@ -1,5 +1,5 @@
 .footer {
-  @apply h-[408px] sm:h-96;
+  @apply h-full;
 }
 
 .container {
@@ -65,5 +65,5 @@ a {
 }
 
 .newsletterContainer {
-  @apply flex bg-[#A1A8B3] sm:hidden py-24 px-7;
+  @apply flex bg-[#A1A8B3] justify-center sm:hidden py-24 px-7;
 }
