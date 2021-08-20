@@ -36,7 +36,8 @@ a {
 }
 
 [data-store-input] {
-  @apply bg-[#A1A8B3] md:bg-[#152032] text-[#152032] md:text-white placeholder-[#152032] md:placeholder-white text-xs w-3/4;
+  @apply bg-[#A1A8B3] text-[#152032] placeholder-[#152032] text-xs w-3/4 outline-none;
+  @apply md:bg-[#152032] md:text-white md:placeholder-white;
 }
 
 .input button {
