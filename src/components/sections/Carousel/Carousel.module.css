@@ -8,7 +8,7 @@
 }
 
 .title {
-  @apply absolute top-[38%] text-white z-10 text-center w-screen text-2xl font-medium;
+  @apply absolute top-[38%] text-white z-10 text-center w-screen text-2xl font-medium px-8;
 }
 
 .links {
