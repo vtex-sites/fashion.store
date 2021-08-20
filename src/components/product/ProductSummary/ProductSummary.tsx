@@ -9,7 +9,6 @@ import { useThumborImageData } from '@vtex/gatsby-plugin-thumbor'
 import imageConf from 'src/images/config'
 
 import type { ProductSummary_ProductFragment } from './__generated__/ProductSummary_product.graphql'
-import './ProductSummary.module.css'
 
 interface Props {
   product?: ProductSummary_ProductFragment
