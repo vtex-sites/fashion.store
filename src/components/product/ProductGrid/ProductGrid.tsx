@@ -5,13 +5,18 @@ import type { ProductSummary_ProductFragment } from '../ProductSummary/__generat
 
 interface Props {
   products: ProductSummary_ProductFragment[]
+  variant?: 'simple' | 'advanced'
 }
 
-function ProductGrid({ products }: Props) {
+function ProductGrid({ products, variant }: Props) {
   return (
     <div>
       {products.map((product, idx) => (
-        <ProductSummary key={`${product.productId}-${idx}`} product={product} />
+        <ProductSummary
+          key={`${product.productId}-${idx}`}
+          product={product}
+          variant={variant}
+        />
       ))}
     </div>
   )
