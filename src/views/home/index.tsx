@@ -1,5 +1,22 @@
 import React, { lazy, Suspense, SuspenseList } from 'react'
+import type { FC } from 'react'
 import type { Props as PageProps } from 'src/pages/index'
+import type { ProductSummary_ProductFragment } from 'src/components/product/ProductSummary/__generated__/ProductSummary_product.graphql'
+
+const ByLookShelf = React.lazy(() =>
+  import('src/components/sections/Shelf').then((module) => ({
+    default: module.ByLookShelf,
+  }))
+)
+// const FindInShelf = React.lazy(()=> import('src/components/sections/Shelf').then(module=>({default:module.FindInShelf})))
+
+// const ShelfNews = lazy(
+//   () =>
+//     import(
+//       /* webpackMode: "eager" */
+//       'src/components/sections/ShelfNews'
+//     )
+// )
 
 const Seo = lazy(
   () =>
@@ -43,7 +60,7 @@ const CarouselSection = lazy(
 
 export type Props = PageProps
 
-function View(props: Props) {
+const View: FC<Props> = (props) => {
   return (
     <div className="flex flex-col">
       <SuspenseList>
@@ -91,10 +108,24 @@ function View(props: Props) {
 
         <Suspense fallback={null}>
           <BagsSection />
-          {/* <span>shelf</span> */}
+          <ByLookShelf
+            products={
+              props.data.vtex.products as ProductSummary_ProductFragment[]
+            }
+            productsPerPage={[1, 3]}
+            title="Shop by look"
+          />
           <SummerCollectionSection />
-          {/* <span>shelf</span>
-          <span>shelf</span> */}
+          {/* <FindInShelf
+            products={props.data.vtex?.products ?? undefined}
+            productsPerPage={[2, 4]}
+            title="Find in..."
+            variant="advanced"
+          /> */}
+          {/* <ShelfNews
+            products={props.data.vtex?.products ?? undefined}
+            productsPerPage={[2, 4]}
+          /> */}
           <ChooseSection />
         </Suspense>
       </SuspenseList>
