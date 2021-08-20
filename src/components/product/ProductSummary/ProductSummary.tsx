@@ -141,7 +141,7 @@ function ProductSummary({ product, variant = 'simple' }: Props) {
 
   const Wrapper = product?.linkText
     ? ({ children }: PropsWithChildren<unknown>) => (
-        <Link to={product?.linkText ?? ''}>{children}</Link>
+        <Link to={`/${product?.linkText}/p` ?? ''}>{children}</Link>
       )
     : Fragment
 
