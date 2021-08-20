@@ -49,14 +49,11 @@ const ShelfNews: FC<Props & React.HTMLProps<HTMLDivElement>> = ({
             const firstItem = page * mediaItemsPerPage
 
             return (
-              <section className="flex wrap" key={page}>
+              <section className="flex flex-col wrap" key={page}>
                 {items
                   .slice(firstItem, firstItem + mediaItemsPerPage)
                   .map((value) => (
-                    <div
-                      key={value}
-                      className={`h-96 w-1/${mediaItemsPerPage} flex-grow text-center text-2xl`}
-                    >
+                    <div key={value} className="h-96 text-center text-2xl">
                       {value}
                     </div>
                   ))}
@@ -66,7 +63,12 @@ const ShelfNews: FC<Props & React.HTMLProps<HTMLDivElement>> = ({
         </UIShelf>
       </div>
       <div className="w-1/2">
-        <GatsbyImage image={sectionGif} alt="" />
+        <GatsbyImage
+          objectFit="contain"
+          className=""
+          image={sectionGif}
+          alt=""
+        />
       </div>
     </section>
   )
