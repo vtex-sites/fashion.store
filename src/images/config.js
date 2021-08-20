@@ -90,9 +90,9 @@ module.exports = {
     },
   },
   'galleryImage.mobile': {
-    sourceWidth: 360,
-    aspectRatio: 360 / 424,
-    breakpoints: [360],
+    sourceWidth: 720,
+    aspectRatio: 720 / 848,
+    breakpoints: [360, 720],
     layout: 'fullWidth',
     backgroundColor: '#dddddd',
     options: {

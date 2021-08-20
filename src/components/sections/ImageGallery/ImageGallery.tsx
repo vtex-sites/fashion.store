@@ -17,7 +17,7 @@ export default function ImageGallery(props: Props) {
   return (
     <>
       <div className={clsx(styles.container, styles.onlyDesktop)}>
-        {props.images.desktop.map((image, idx) => (
+        {props.images.desktop.map((image) => (
           <img
             src={image.images.fallback?.src}
             alt={props.alt}
@@ -25,7 +25,6 @@ export default function ImageGallery(props: Props) {
             height={image.height}
             className={styles.image}
             style={{ aspectRatio: '720 / 848' }}
-            loading={idx === 0 ? 'eager' : 'lazy'}
             key={image.images.fallback?.src}
           />
         ))}
