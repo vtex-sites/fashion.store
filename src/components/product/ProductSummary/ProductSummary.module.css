@@ -2,12 +2,8 @@
   @apply line-through opacity-60;
 }
 
-[data-p-s-simple-container] {
-  @apply px-28 h-full inline-flex flex-col relative;
-}
-
-[data-p-s-advanced-container] {
-  @apply px-12 h-full inline-flex flex-col relative;
+[data-p-s-simple-container], [data-p-s-advanced-container] {
+  @apply px-4 sm:px-12 h-full inline-flex flex-col relative;
 }
 
 [data-p-s-image-container] {

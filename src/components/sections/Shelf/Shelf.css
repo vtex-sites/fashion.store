@@ -1,7 +1,3 @@
-.container {
-  @apply w-screen sm:pl-28;
-}
-
 [data-store-carousel] {
   @apply relative;
 }
@@ -23,7 +19,7 @@
 }
 
 [data-carousel-bullets] {
-  @apply absolute p-0 m-0 left-0 right-0 bottom-1/4;
+  @apply absolute p-0 m-0 left-0 right-0 bottom-4;
 }
 
 [data-carousel-bullets] [data-store-bullets] {

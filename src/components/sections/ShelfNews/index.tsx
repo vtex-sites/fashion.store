@@ -7,7 +7,7 @@ import ProductSummary from 'src/components/product/ProductSummary'
 import type { ProductSummary_ProductFragment } from 'src/components/product/ProductSummary/__generated__/ProductSummary_product.graphql'
 import imagesConf from 'src/images/config'
 
-import * as styles from './ShelfNews.module.css'
+import './ShelfNews.css'
 
 interface Props {
   products?: ProductSummary_ProductFragment[] | any
@@ -16,7 +16,6 @@ interface Props {
 }
 
 const ShelfNews: FC<Props & React.HTMLProps<HTMLDivElement>> = ({
-  className,
   products,
   productsPerPage,
   title,
@@ -43,7 +42,7 @@ const ShelfNews: FC<Props & React.HTMLProps<HTMLDivElement>> = ({
   ])
 
   return (
-    <section className={`${styles.container} ${className} flex`}>
+    <section className="w-screen sm:pl-28 text-5xl pt-24 flex">
       <div className="w-1/2">
         <h1 className="mb-4">{title}</h1>
         <UIShelf>
