@@ -59,16 +59,15 @@ module.exports = {
     sourceWidth: 720,
     aspectRatio: 360 / 424,
     breakpoints: [360, 480, 720],
+    backgroundColor: '#dddddd',
     layout: 'fullWidth',
   },
   'collectionBanner.desktop': {
     sourceWidth: 1920,
     aspectRatio: 1366 / 480,
     breakpoints: [1024, 1366, 1920],
+    backgroundColor: '#dddddd',
     layout: 'fullWidth',
-    options: {
-      fitIn: true,
-    },
   },
   'home.logo': {
     sourceWidth: 200,
