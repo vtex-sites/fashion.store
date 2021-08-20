@@ -24,9 +24,8 @@ function ProductGallery({ initialData, productSearch: { totalCount } }: Props) {
   } = useSearch()
 
   return (
-    <>
+    <div className="flex flex-col items-center">
       {/* Controls */}
-      <div>Total Products: {totalCount}</div>
 
       {/* Add link to previous page. This helps on SEO */}
       {prev !== false && (
@@ -46,7 +45,12 @@ function ProductGallery({ initialData, productSearch: { totalCount } }: Props) {
 
       {/* Add link to next page. This helps on SEO */}
       {next !== false && (
-        <a onClick={setNextPage} href={next.link} rel="next">
+        <a
+          onClick={setNextPage}
+          className="bg-primary text-white px-4 py-2 rounded-md mt-4"
+          href={next.link}
+          rel="next"
+        >
           Show More
         </a>
       )}
@@ -54,7 +58,7 @@ function ProductGallery({ initialData, productSearch: { totalCount } }: Props) {
       {/* Prefetch Previous and Next pages */}
       {prev !== false && <GalleryPage page={prev.cursor} display={false} />}
       {next !== false && <GalleryPage page={next.cursor} display={false} />}
-    </>
+    </div>
   )
 }
 
