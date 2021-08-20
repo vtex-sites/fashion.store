@@ -33,7 +33,7 @@ function View({ product: serverData, site }: Props) {
    * on the browser
    */
   const { data } = useProduct(
-    { slug: serverData.slug! },
+    { slug: serverData.slug as string },
     { vtex: { product: serverData } }
   )
 
