@@ -83,21 +83,29 @@ function Footer() {
           </div>
           <div className={styles.social}>
             <div className="flex justify-end">
-              <Instagram size={16} color="white" className="mr-2" />
+              <a href="/">
+                <Instagram size={16} color="white" className="mr-2" />
+              </a>
               <span className={styles.mobileHidden}>Instagram</span>
             </div>
             <div className={styles.social}>
-              <Facebook size={16} color="white" className="mr-2" />
+              <a href="/">
+                <Facebook size={16} color="white" className="mr-2" />
+              </a>
               <span className={styles.mobileHidden}>Facebook</span>
             </div>
             <div className="flex">
-              <Twitter size={16} color="white" className="mr-2" />
+              <a href="/">
+                <Twitter size={16} color="white" className="mr-2" />
+              </a>
               <span className={styles.mobileHidden}>Twitter</span>
             </div>
           </div>
           <div className="hidden justify-center w-1/3 items-center md:flex">
             Powered by
-            <Icon component={<VtexLogo />} className="ml-2 w-14 h-5" />
+            <a href="/" className="ml-2 items-center">
+              <Icon component={<VtexLogo />} className="w-14 h-5" />
+            </a>
           </div>
         </div>
       </div>
