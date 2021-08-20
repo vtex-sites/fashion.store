@@ -1,0 +1,19 @@
+.container {
+  @apply h-screen w-screen;
+}
+
+.main[data-placement="left"] {
+  @apply left-0 top-0 bottom-0;
+}
+
+.main[data-placement="right"] {
+  @apply right-0 top-0 bottom-0;
+}
+
+.main {
+  @apply fixed w-full shadow-sm z-50 bg-white;
+}
+
+.backdrop {
+  @apply bg-primary w-screen h-screen z-40 top-0 right-0 fixed opacity-50 ;
+}

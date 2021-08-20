@@ -15,3 +15,7 @@
 .userNav {
   @apply mr-4 hidden sm:block;
 }
+
+.cart {
+  @apply appearance-none;
+}

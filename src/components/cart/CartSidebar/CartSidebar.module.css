@@ -1,0 +1,11 @@
+[data-variant="cart"] [data-main] {
+  @apply max-w-sm;
+}
+
+[data-variant="cart"] [data-backdrop] {
+  @apply bg-blue;
+}
+
+.container {
+  @apply p-7;
+}
