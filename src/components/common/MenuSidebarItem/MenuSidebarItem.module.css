@@ -30,3 +30,7 @@
 .title {
   @apply uppercase hover:text-pink sm:text-2xl text-xs sm:leading-loose leading-10;
 }
+
+.subItem {
+  @apply uppercase hover:text-pink text-xs text-gray-light leading-8 pl-3 py-1;
+}

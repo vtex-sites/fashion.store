@@ -12,22 +12,30 @@ import * as styles from './MenuSidebarItem.module.css'
 interface Props {
   name: string
   href?: string
-  children?: React.ReactNode
+  subItems?: string[]
 }
 
-function MenuSidebarItem({ name, href, children }: Props) {
+function MenuSidebarItem({ name, href, subItems }: Props) {
   let item = (
     <AccordionItem className={styles.root}>
       <AccordionButton>
         <span className={styles.title}>{name}</span>
-        {children && (
+        {subItems && (
           <>
             <Plus className={styles.plusIcon} />
             <Minus className={styles.minusIcon} />
           </>
         )}
       </AccordionButton>
-      {children && <AccordionPanel>{children}</AccordionPanel>}
+      {subItems && (
+        <AccordionPanel>
+          {subItems.map((subItem) => (
+            <div key={subItem} className={styles.subItem}>
+              {subItem}
+            </div>
+          ))}
+        </AccordionPanel>
+      )}
     </AccordionItem>
   )
 

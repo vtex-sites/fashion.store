@@ -7,7 +7,7 @@
 }
 
 .root {
-  @apply sm:px-9 px-5;
+  @apply sm:px-9 px-5 h-full overflow-auto;
 }
 
 .header {
@@ -16,4 +16,16 @@
 
 .closeIcon {
   @apply h-8 w-8 text-gray-400 cursor-pointer -ml-1;
+}
+
+.main {
+  @apply sm:mb-40;
+}
+
+.footer {
+  @apply mt-5 mb-1 pt-8 border-t border-gray-light;
+}
+
+.footer li {
+  @apply block uppercase hover:text-pink text-gray-light text-xs leading-8 cursor-pointer;
 }
