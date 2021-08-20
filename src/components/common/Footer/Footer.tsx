@@ -61,7 +61,10 @@ const ColumnMobile: FC<ColumnProps> = ({ links }) => {
 function Footer() {
   return (
     <footer className={styles.footer}>
-      <Newsletter className={styles.newsletterContainer} />
+      <Newsletter
+        className={styles.newsletterContainer}
+        id="newsletter-input-mobile"
+      />
       <div className={styles.container}>
         <div className={styles.desktopHidden}>
           <ColumnMobile links={aboutUs} />
@@ -73,7 +76,7 @@ function Footer() {
             <Column links={aboutUs} />
             <Column links={needHelp} />
             <Column links={customerServices} />
-            <Newsletter />
+            <Newsletter id="newsletter-input-desktop" />
           </div>
         </div>
         <div className={styles.containerBottom}>
