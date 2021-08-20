@@ -35,7 +35,7 @@ function Layout({ children }: PropsWithChildren<unknown>) {
         <Navbar />
       </Suspense>
       <Suspense fallback={null}>
-        <main>{children}</main>
+        <main className="min-h-screen">{children}</main>
       </Suspense>
       <Suspense fallback={<div className="h-14" />}>
         <Footer />
