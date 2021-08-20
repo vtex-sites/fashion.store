@@ -1,7 +1,7 @@
 import { useCart, useGlobalUIState } from '@vtex/store-sdk'
 import React from 'react'
 import Drawer from 'src/components/ui/Drawer'
-import { X } from 'react-feather'
+import { X as CloseIcon } from 'react-feather'
 import { Price } from '@vtex/store-ui'
 import { useFormattedPrice } from 'src/sdk/price/useFormattedPrice'
 
@@ -16,7 +16,7 @@ function CartSidebar() {
     <Drawer isOpen onClose={closeMinicart} variant="cart" placement="right">
       <div className={styles.container}>
         <header>
-          <X className={styles.x} onClick={closeMinicart} />
+          <CloseIcon className={styles.closeIcon} onClick={closeMinicart} />
           <div className={styles.title}>Cart</div>
         </header>
 
