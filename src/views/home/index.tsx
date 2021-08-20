@@ -88,6 +88,7 @@ function View(props: Props) {
             ]}
           />
         </Suspense>
+
         <Suspense fallback={null}>
           <BagsSection />
           {/* <span>shelf</span> */}

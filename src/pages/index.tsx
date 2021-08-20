@@ -17,12 +17,29 @@ function Page(props: Props) {
 }
 
 export const query = graphql`
-  query HomePageQuery {
+  query HomePageQuery(
+    $from: Int!
+    $to: Int!
+    $collection: String!
+    $orderBy: String!
+    $hideUnavailableItems: Boolean!
+  ) {
     site {
       siteMetadata {
         title
         description
         titleTemplate
+      }
+    }
+    vtex {
+      products(
+        from: $from
+        to: $to
+        collection: $collection
+        orderBy: $orderBy
+        hideUnavailableItems: $hideUnavailableItems
+      ) {
+        ...ProductSummary_product
       }
     }
   }

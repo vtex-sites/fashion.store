@@ -41,7 +41,7 @@ function GalleryPage({ page, initialData, display }: Props) {
     return null
   }
 
-  return <ProductGrid products={products} />
+  return <ProductGrid products={products} variant="advanced" />
 }
 
 export const query = gql`
