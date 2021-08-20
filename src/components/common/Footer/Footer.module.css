@@ -23,16 +23,16 @@ a {
 }
 
 .form {
-  @apply text-white border-b border-[#152032] font-semibold pb-2 leading-[56px] text-4xl text-center;
-  @apply sm:border-white sm:font-bold sm:leading-8 sm:text-2xl sm:text-left;
+  @apply text-[#1d1d1d] border-b border-[#152032] font-semibold pb-2 leading-[56px] text-4xl text-center;
+  @apply sm:text-white sm:border-white sm:font-bold sm:leading-8 sm:text-2xl sm:text-left;
 }
 
 .subtitle {
-  @apply text-white my-6 text-xs leading-5 font-normal text-center max-w-xs sm:text-[#A1A8B3] sm:text-left;
+  @apply text-[#1d1d1d] my-6 text-xs leading-5 font-normal text-center max-w-xs sm:text-[#A1A8B3] sm:text-left;
 }
 
 .input {
-  @apply flex pb-2 pt-5 text-[#152032];
+  @apply flex pb-2 pt-5 text-[#152032] sm:text-white;
 }
 
 [data-store-input] {
@@ -41,7 +41,7 @@ a {
 }
 
 .input button {
-  @apply pl-3 text-white sm:text-[#ff4281] uppercase text-xs font-medium;
+  @apply pl-3 text-[#1d1d1d] sm:text-[#ff4281] uppercase text-xs font-medium;
 }
 
 .containerBottom {
