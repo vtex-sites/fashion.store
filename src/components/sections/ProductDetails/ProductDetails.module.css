@@ -1,0 +1,30 @@
+.container {
+  @apply flex flex-col;
+  @apply pt-28 p-10 space-y-4;
+}
+
+.title {
+  @apply text-2xl text-primary m-0;
+}
+
+.label {
+  @apply uppercase text-gray-700 text-xs;
+}
+
+.brand {
+  @apply mr-8;
+}
+
+.price {
+  @apply text-xl text-primary;
+}
+
+.info {
+  @apply flex flex-col space-y-2;
+}
+
+.addToCart {
+  @apply bg-primary text-white;
+  @apply py-3;
+  @apply uppercase font-bold;
+}
