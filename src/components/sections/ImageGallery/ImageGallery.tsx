@@ -25,6 +25,7 @@ export default function ImageGallery(props: Props) {
             height={image.height}
             className={styles.image}
             style={{ aspectRatio: '720 / 848' }}
+            loading="lazy"
             key={image.images.fallback?.src}
           />
         ))}
