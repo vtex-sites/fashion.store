@@ -42,7 +42,7 @@ function Layout({ children }: PropsWithChildren<unknown>) {
       <Suspense fallback={null}>
         {displayMenuSidebar && <MenuSidebar />}
       </Suspense>
-      <Suspense fallback={<div className="h-14" />}>
+      <Suspense fallback={null}>
         <Navbar />
       </Suspense>
       <Suspense fallback={null}>
