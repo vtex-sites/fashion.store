@@ -1,9 +1,9 @@
 import React from 'react'
 import { Menu } from 'react-feather'
+import Logo from 'src/components/ui/Logo'
+import Search from 'src/components/ui/Search'
+import Navlinks from 'src/components/common/Navlinks'
 
-import Navlinks from '../Navlinks'
-import Logo from './Logo'
-import Search from './Search'
 import * as styles from './Navbar.module.css'
 
 function Navbar() {
