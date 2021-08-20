@@ -6,6 +6,7 @@ import {
 } from '@vtex/store-sdk'
 import React from 'react'
 import 'tailwindcss/tailwind.css'
+import '@reach/accordion/styles.css'
 
 import { validateCart } from './src/sdk/cart/validateCart'
 import ErrorBoundary from './src/sdk/error/ErrorBoundary'

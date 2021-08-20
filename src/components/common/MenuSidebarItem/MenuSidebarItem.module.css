@@ -1,4 +1,32 @@
 .root {
-  @apply uppercase cursor-pointer hover:text-pink;
-  @apply sm:text-2xl text-xs sm:leading-loose leading-10;
+  @apply cursor-pointer;
+}
+
+.root [data-reach-accordion-button] {
+  @apply flex items-center justify-between w-full;
+}
+
+.plusIcon,
+.minusIcon {
+  @apply h-4 w-4 text-gray;
+}
+
+.root [data-state='open'] .plusIcon {
+  @apply hidden;
+}
+
+.root [data-state='open'] .minusIcon {
+  @apply block;
+}
+
+.root [data-state='collapsed'] .plusIcon {
+  @apply block;
+}
+
+.root [data-state='collapsed'] .minusIcon {
+  @apply hidden;
+}
+
+.title {
+  @apply uppercase hover:text-pink sm:text-2xl text-xs sm:leading-loose leading-10;
 }

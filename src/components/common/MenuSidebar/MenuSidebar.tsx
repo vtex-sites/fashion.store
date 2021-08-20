@@ -1,6 +1,7 @@
 import { useGlobalUIState } from '@vtex/store-sdk'
 import React from 'react'
 import { X as CloseIcon } from 'react-feather'
+import { Accordion } from '@reach/accordion'
 import MenuSidebarItem from 'src/components/common/MenuSidebarItem'
 import Drawer from 'src/components/ui/Drawer'
 
@@ -16,13 +17,13 @@ function MenuSidebar() {
           <CloseIcon className={styles.closeIcon} onClick={closeMenuSidebar} />
         </header>
 
-        <main>
-          <MenuSidebarItem name="Women" href="/women" />
+        <Accordion collapsible>
+          <MenuSidebarItem name="Women">asdadsa</MenuSidebarItem>
           <MenuSidebarItem name="Men" href="/men" />
           <MenuSidebarItem name="Children" href="/women" />
           <MenuSidebarItem name="Bags" href="/women" />
           <MenuSidebarItem name="Sales" href="/women" />
-        </main>
+        </Accordion>
       </div>
     </Drawer>
   )
