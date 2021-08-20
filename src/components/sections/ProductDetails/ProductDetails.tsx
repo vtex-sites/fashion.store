@@ -1,8 +1,6 @@
-import { useLocation } from '@reach/router'
 import { Button, Input, Price } from '@vtex/store-ui'
 import clsx from 'clsx'
 import { graphql } from 'gatsby'
-import queryString from 'query-string'
 import { default as React } from 'react'
 import { useBuyButton } from 'src/sdk/buy/useBuyButton'
 import { useFormattedPrice } from 'src/sdk/price/useFormattedPrice'
@@ -17,11 +15,7 @@ interface Props {
 function ProductDetails({ product }: Props) {
   const item = product.items?.[0]
   const offer = item?.sellers?.[0]?.commercialOffer
-  const location = useLocation()
-  const { skuId } = queryString.parse(location.search)
-  const itemSelected = product?.items?.find(
-    (selected) => selected?.itemId === skuId
-  )
+  const itemSelected = product?.items![0]
 
   const btnProps = useBuyButton(
     offer && {
@@ -70,9 +64,11 @@ function ProductDetails({ product }: Props) {
         <form className="flex items-center">
           <Input
             placeholder="Type your postal code"
-            className="border-b w-full py-2"
+            className="border-b w-full py-2 h-12"
           />
-          <Button className="pl-2 uppercase text-gray-600">Ok</Button>
+          <Button className="pl-2 uppercase text-gray-600 h-12 w-12 justify-center flex items-center">
+            Ok
+          </Button>
         </form>
         <Button className="bg-pink-50 text-pink-dark py-3 uppercase mt-8">
           Or choose store
