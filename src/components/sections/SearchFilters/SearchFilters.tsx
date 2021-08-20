@@ -1,6 +1,5 @@
 import '@reach/accordion/styles.css'
 
-import type { PropsWithChildren } from 'react'
 import React from 'react'
 import {
   Accordion,
