@@ -24,18 +24,18 @@ export const ByLookShelf: FC<Props & React.HTMLProps<HTMLDivElement>> = ({
 
   const mediaItemsPerPage = isDesktop ? productsPerPage[1] : productsPerPage[0]
 
-  const pagesNumber = Math.ceil(products!.length / mediaItemsPerPage)
+  const pagesNumber = Math.ceil(products.length / mediaItemsPerPage)
 
   return (
     <section className="w-screen px-4 sm:px-28 pt-24 pb-36">
       {title && <h1 className="mb-4 text-center text-5xl">{title}</h1>}
-      <UIShelf>
+      <UIShelf id="by-look-shelf">
         {[...Array(pagesNumber)].map((x, page) => {
           const firstItem = page * mediaItemsPerPage
 
           return (
             <section className="flex wrap justify-around" key={page}>
-              {products!
+              {products
                 .slice(firstItem, firstItem + mediaItemsPerPage)
                 .map((product: ProductSummary_ProductFragment, idx: number) => (
                   <ProductSummary
@@ -62,18 +62,18 @@ export const FindInShelf: FC<Props & React.HTMLProps<HTMLDivElement>> = ({
 
   const mediaItemsPerPage = isDesktop ? productsPerPage[1] : productsPerPage[0]
 
-  const pagesNumber = Math.ceil(products!.length / mediaItemsPerPage)
+  const pagesNumber = Math.ceil(products.length / mediaItemsPerPage)
 
   return (
     <section className="w-screen px-4 sm:px-28 mb-8 sm:-mt-28 sm:text-white z-10">
       {title && <h1 className="mb-4 text-2xl">{title}</h1>}
-      <UIShelf>
+      <UIShelf id="find-in-shelf">
         {[...Array(pagesNumber)].map((x, page) => {
           const firstItem = page * mediaItemsPerPage
 
           return (
             <section className="flex h-28" key={page}>
-              {products!
+              {products
                 .slice(firstItem, firstItem + mediaItemsPerPage)
                 .map((product: ProductSummary_ProductFragment, idx: number) => (
                   <ProductSummary
