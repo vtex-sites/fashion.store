@@ -6,34 +6,27 @@ import type { ProductViewFragment_ProductFragment } from '../__generated__/Produ
 
 type Props = {
   product?: ProductViewFragment_ProductFragment
-  skuId: string
+  skuId?: string
 }
 
 export const useImageGallery = (props: Props) => {
   const getThumborImageData = useGetThumborImageData()
 
-  const items = useMemo(
-    () =>
-      props.product?.items?.find((item) => item?.itemId === props.skuId)
-        ?.images ?? [],
-    [props.product, props.skuId]
-  )
-
   return useMemo(
     () => ({
-      desktop: items.map((item) =>
+      desktop: (props.product?.items![0]?.images ?? []).map((item) =>
         getThumborImageData({
           baseUrl: item?.imageUrl ?? '',
           ...imagesConf['galleryImage.desktop'],
         })
       ),
-      mobile: items.map((item) =>
+      mobile: (props.product?.items![0]?.images ?? []).map((item) =>
         getThumborImageData({
           baseUrl: item?.imageUrl ?? '',
           ...imagesConf['galleryImage.mobile'],
         })
       ),
     }),
-    [getThumborImageData, items]
+    [getThumborImageData, props]
   )
 }
