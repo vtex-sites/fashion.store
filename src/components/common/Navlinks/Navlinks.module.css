@@ -1,0 +1,17 @@
+.root {
+  @apply absolute top-7 right-8;
+  @apply flex items-center sm:static sm:top-auto sm:right-auto;
+}
+
+.languageSelector {
+  @apply flex items-center justify-center w-16 font-bold cursor-pointer;
+}
+
+.navlink {
+  @apply cursor-pointer stroke-current text-white;
+}
+
+.wishListNav,
+.userNav {
+  @apply mr-4 hidden sm:block;
+}

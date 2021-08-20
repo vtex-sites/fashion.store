@@ -1,0 +1,16 @@
+.root {
+  @apply sm:mr-4 my-3 sm:my-0 rounded-md flex h-9 w-full sm:w-auto;
+  border: 1px solid rgba(72, 72, 72, 0.58);
+}
+
+.input {
+  @apply bg-transparent pl-4 outline-none text-white w-full sm:w-auto;
+}
+
+.iconContainer {
+  @apply pl-3 pr-4 flex items-center;
+}
+
+.icon {
+  @apply cursor-pointer;
+}

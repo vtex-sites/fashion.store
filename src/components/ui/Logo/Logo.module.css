@@ -1,0 +1,7 @@
+.root {
+  @apply pl-6 sm:py-3 py-0;
+}
+
+.image {
+  @apply block mt-1 h-[15px] w-[150px] sm:mt-[2px] sm:h-[20px] sm:w-[200px];
+}
