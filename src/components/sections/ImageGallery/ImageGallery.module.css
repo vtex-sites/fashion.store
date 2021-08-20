@@ -9,3 +9,8 @@
 .onlyMobile {
   @apply sm:hidden block;
 }
+
+.image {
+  aspect-ratio: 1000 / 1177;
+  @apply w-full;
+}

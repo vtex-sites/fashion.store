@@ -1,8 +1,7 @@
-import { GatsbyImage } from 'gatsby-plugin-image'
-import type { IGatsbyImageData } from 'gatsby-plugin-image'
-import React from 'react'
 import { Carousel } from '@vtex/store-ui'
 import clsx from 'clsx'
+import type { IGatsbyImageData } from 'gatsby-plugin-image'
+import React from 'react'
 
 import * as styles from './ImageGallery.module.css'
 
@@ -13,10 +12,12 @@ type Props = {
 
 export default function ImageGallery(props: Props) {
   const images = props.images.map((image, idx) => (
-    <GatsbyImage
-      key={`${idx}-${image.images.fallback?.src}`}
-      image={image}
-      alt={props.alt}
+    <img
+      src={image.images.fallback?.src}
+      alt="Test"
+      className={styles.image}
+      loading={idx === 0 ? 'eager' : 'lazy'}
+      key={image.images.fallback?.src}
     />
   ))
 
