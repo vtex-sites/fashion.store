@@ -9,6 +9,7 @@ import WishlistIcon from 'src/components/common/WishlistIcon/WishlishIcon'
 import imageConf from 'src/images/config'
 
 import type { ProductSummary_ProductFragment } from './__generated__/ProductSummary_product.graphql'
+import './ProductSummary.module.css'
 
 interface Props {
   product?: ProductSummary_ProductFragment
@@ -36,26 +37,16 @@ function discountFormatter(discount: number) {
 
 function ProductSummarySimple({ product, image, discount }: VariantProps) {
   return (
-    <div
-      data-store-p-s-container
-      className="px-28 h-full inline-flex flex-col relative"
-    >
-      <div
-        data-store-p-s-image-container
-        className="h-72 w-72 relative flex flex-col justify-center"
-      >
+    <div data-p-s-simple-container>
+      <div data-p-s-image-container>
         <GatsbyImage
           alt={product?.items?.[0]?.images?.[0]?.imageText ?? ''}
           image={image}
           objectFit="contain"
-          data-store-p-s-image
-          className="max-w-full max-h-full w-auto"
+          data-p-s-image
         />
         {discount !== 0 ? (
-          <div
-            data-store-p-s-badge
-            className="absolute top-0 right-0 px-2 bg-pink-600 text-xs text-white"
-          >
+          <div data-p-s-badge>
             <Price
               value={discount}
               variant="savings"
@@ -64,17 +55,9 @@ function ProductSummarySimple({ product, image, discount }: VariantProps) {
           </div>
         ) : null}
       </div>
-      <div
-        data-store-p-s-info-container
-        className="w-72 relative flex flex-col justify-center"
-      >
-        <span className="text-center break-all mt-6 mb-1">
-          {product?.productName}
-        </span>
-        <div
-          data-store-p-s-prices
-          className="text-center flex flex-row justify-center"
-        >
+      <div data-p-s-simple-info-container>
+        <span data-p-s-simple-product-name>{product?.productName}</span>
+        <div data-p-s-prices>
           <Price
             value={
               product?.items?.[0]?.sellers?.[0]?.commertialOffer?.Price ?? 0
@@ -82,34 +65,21 @@ function ProductSummarySimple({ product, image, discount }: VariantProps) {
             formatter={usePriceFormatter}
             variant="selling"
           />
-          <div className="mx-4" />
+          <div data-p-s-prices-divider />
           <Price
             value={
               product?.items?.[0]?.sellers?.[0]?.commertialOffer?.ListPrice ?? 0
             }
             formatter={usePriceFormatter}
             variant="listing"
-            className="line-through opacity-60"
           />
         </div>
       </div>
 
-      <Button
-        data-store-p-s-wishlist-button
-        className="rounded-full absolute p-2 bg-white left-5 top-6"
-        aria-label="Add to wishlist"
-      >
-        <Icon
-          data-store-p-s-wishlist-icon
-          component={<WishlistIcon />}
-          className="text-gray-500"
-        />
+      <Button data-p-s-simple-wishlist-button aria-label="Add to wishlist">
+        <Icon data-p-s-wishlist-icon component={<WishlistIcon />} />
       </Button>
-      <div
-        data-store-p-s-bg
-        style={{ top: '15%', zIndex: -1 }}
-        className="absolute bg-blue-50 left-0 bottom-0 right-0"
-      />
+      <div data-p-s-bg />
     </div>
   )
 }
@@ -117,26 +87,16 @@ function ProductSummarySimple({ product, image, discount }: VariantProps) {
 function ProductSummaryAdvanced({ product, image, discount }: VariantProps) {
   return (
     <>
-      <div
-        data-store-p-s-container
-        className="px-12 h-full inline-flex flex-col relative"
-      >
-        <div
-          data-store-p-s-image-container
-          className="h-72 w-72 relative flex flex-col justify-center"
-        >
+      <div data-p-s-advanced-container>
+        <div data-p-s-image-container>
           <GatsbyImage
             alt={product?.items?.[0]?.images?.[0]?.imageText ?? ''}
             image={image}
             objectFit="contain"
-            data-store-p-s-image
-            className="max-w-full max-h-full w-auto"
+            data-p-s-image
           />
           {discount !== 0 ? (
-            <div
-              data-store-p-s-badge
-              className="absolute top-0 right-0 px-2 bg-pink-600 text-xs text-white"
-            >
+            <div data-p-s-badge>
               <Price
                 value={discount}
                 variant="savings"
@@ -146,24 +106,13 @@ function ProductSummaryAdvanced({ product, image, discount }: VariantProps) {
           ) : null}
         </div>
 
-        <Button
-          data-store-p-s-wishlist-button
-          className="rounded-full absolute p-2 bg-white left-8 top-6"
-          aria-label="Add to wishlist"
-        >
-          <Icon
-            data-store-p-s-wishlist-icon
-            component={<WishlistIcon />}
-            className="text-gray-500"
-          />
+        <Button data-p-s-advanced-wishlist-button aria-label="Add to wishlist">
+          <Icon data-p-s-wishlist-icon component={<WishlistIcon />} />
         </Button>
       </div>
-      <div
-        data-store-p-s-info-container
-        className="px-6 w-72 relative flex flex-col justify-center"
-      >
-        <span className="break-all mt-6 mb-4">{product?.productName}</span>
-        <Button className="rounded-full border-t border-l border-r border-b border-black bg-gray-50 h-6 w-6" />
+      <div data-p-s-advanced-info-container>
+        <span data-p-s-advanced-product-name>{product?.productName}</span>
+        <Button aria-label="Select product color" data-p-s-sku-selector />
         <Price
           value={product?.items?.[0]?.sellers?.[0]?.commertialOffer?.Price ?? 0}
           formatter={usePriceFormatter}
@@ -196,7 +145,7 @@ function ProductSummary({ product, variant = 'simple' }: Props) {
       )
     : Fragment
 
-  if (variant === 'advanced') {
+  if (variant === 'simple') {
     return (
       <Wrapper>
         <ProductSummaryAdvanced
