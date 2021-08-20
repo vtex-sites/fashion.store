@@ -145,7 +145,7 @@ function ProductSummary({ product, variant = 'simple' }: Props) {
       )
     : Fragment
 
-  if (variant === 'simple') {
+  if (variant === 'advanced') {
     return (
       <Wrapper>
         <ProductSummaryAdvanced
