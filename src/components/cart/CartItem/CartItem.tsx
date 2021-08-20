@@ -7,7 +7,7 @@ import type { CartItem as ICartItem } from '@vtex/store-sdk'
 
 import * as styles from './CartItem.module.css'
 
-interface Item extends ICartItem {
+export interface MinicartItem extends ICartItem {
   brand: string
   name: string
   facets: Array<{ key: string; value: string }>
@@ -18,7 +18,7 @@ interface Item extends ICartItem {
 }
 
 interface Props {
-  item: Item
+  item: MinicartItem
 }
 
 const quantity = Array(10).fill(true)

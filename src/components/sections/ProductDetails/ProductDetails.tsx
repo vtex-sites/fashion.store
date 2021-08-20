@@ -1,36 +1,15 @@
-import React, { useCallback } from 'react'
-import { useCart, useGlobalUIState } from '@vtex/store-sdk'
+import React from 'react'
 import { graphql } from 'gatsby'
-import type { CartItem } from '@vtex/store-sdk'
 import type { ProductDetailsFragment_ProductFragment } from 'src/views/product/__generated__/ProductViewFragment_product.graphql'
+import { useBuyButton } from 'src/sdk/buy/useBuyButton'
 
 interface Props {
   product: ProductDetailsFragment_ProductFragment
 }
 
-const useBuyButton = (item: CartItem | null | undefined) => {
-  const { addItem } = useCart()
-  const { openMinicart } = useGlobalUIState()
-
-  const onClick = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-      e.preventDefault()
-
-      if (!item) {
-        return
-      }
-
-      addItem(item)
-      openMinicart()
-    },
-    [item, addItem, openMinicart]
-  )
-
-  return { onClick }
-}
-
 function ProductDetails({ product }: Props) {
-  const offer = product.items?.[0]?.sellers?.[0]?.commercialOffer
+  const item = product.items?.[0]
+  const offer = item?.sellers?.[0]?.commercialOffer
   const btnProps = useBuyButton(
     offer && {
       id: product.id!,
@@ -39,6 +18,17 @@ function ProductDetails({ product }: Props) {
       quantity: {
         selling: 1,
         gift: 0,
+      },
+      name: product.productName!,
+      brand: product.brand!,
+      facets:
+        item?.variations?.map((variation) => ({
+          key: variation!.name!,
+          value: variation!.values![0]!,
+        })) ?? [],
+      image: {
+        src: item?.images?.[0]?.src ?? '',
+        alt: item?.images?.[0]?.alt ?? '',
       },
     }
   )
@@ -55,8 +45,17 @@ export const fragment = graphql`
   fragment ProductDetailsFragment_product on StoreProduct {
     id: productId
     productName
+    brand
 
     items {
+      variations {
+        name
+        values
+      }
+      images {
+        src: imageUrl
+        alt: imageText
+      }
       sellers {
         commercialOffer: commertialOffer {
           spotPrice
