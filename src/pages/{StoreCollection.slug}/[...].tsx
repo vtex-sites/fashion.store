@@ -10,11 +10,6 @@ import type {
   BrowserCollectionPageQueryQueryVariables,
 } from './__generated__/BrowserCollectionPageQuery.graphql'
 
-export type Props = PageProps<
-  BrowserCollectionPageQueryQuery,
-  BrowserCollectionPageQueryQueryVariables & { slug: string }
->
-
 const CollectionBanner = lazy(
   () =>
     import(
@@ -22,6 +17,11 @@ const CollectionBanner = lazy(
       'src/components/sections/CollectionBanner'
     )
 )
+
+export type Props = PageProps<
+  BrowserCollectionPageQueryQuery,
+  BrowserCollectionPageQueryQueryVariables & { slug: string }
+>
 
 const useSearchParams = ({ href }: Location) =>
   useMemo(() => href && parseSearchParamsState(new URL(href)), [href])
