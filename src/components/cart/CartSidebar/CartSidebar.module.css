@@ -3,7 +3,7 @@
 }
 
 [data-variant="cart"] [data-backdrop] {
-  @apply bg-[#03044e];
+  @apply bg-blue;
 }
 
 .container {

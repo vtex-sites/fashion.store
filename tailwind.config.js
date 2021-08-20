@@ -2,6 +2,7 @@ const Color = require('color')
 
 const COLORS = {
   PRIMARY: '#142032',
+  BLUE: '#03044e',
   PINK: '#f71963',
   GRAY: '#727273',
 }
