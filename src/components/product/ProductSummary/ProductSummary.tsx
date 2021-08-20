@@ -89,7 +89,7 @@ function ProductSummarySimple({ product, image, discount }: VariantProps) {
             }
             formatter={usePriceFormatter}
             variant="listing"
-            className="line-through opacity-30"
+            className="line-through opacity-60"
           />
         </div>
       </div>
@@ -97,6 +97,7 @@ function ProductSummarySimple({ product, image, discount }: VariantProps) {
       <Button
         data-store-p-s-wishlist-button
         className="rounded-full absolute p-2 bg-white left-5 top-6"
+        aria-label="Add to wishlist"
       >
         <Icon
           data-store-p-s-wishlist-icon
@@ -148,6 +149,7 @@ function ProductSummaryAdvanced({ product, image, discount }: VariantProps) {
         <Button
           data-store-p-s-wishlist-button
           className="rounded-full absolute p-2 bg-white left-8 top-6"
+          aria-label="Add to wishlist"
         >
           <Icon
             data-store-p-s-wishlist-icon
