@@ -15,10 +15,16 @@ function Layout({ children }: PropsWithChildren<unknown>) {
       <Navbar />
       <main className="min-h-screen">{children}</main>
       <Footer />
-      <Suspense fallback={null}>
-        {displayMenuSidebar && <MenuSidebar />}
-        {displayMinicart && <CartSidebar />}
-      </Suspense>
+      {displayMenuSidebar && (
+        <Suspense fallback={null}>
+          <MenuSidebar />
+        </Suspense>
+      )}
+      {displayMinicart && (
+        <Suspense fallback={null}>
+          <CartSidebar />
+        </Suspense>
+      )}
     </>
   )
 }

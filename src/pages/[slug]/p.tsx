@@ -37,7 +37,7 @@ const ProductPage: FC<Props> = (props) => {
   })
 
   if (browerData == null || serverData.site == null) {
-    throw new Error('Something went wrong while fetching data')
+    return null
   }
 
   return (
@@ -57,9 +57,7 @@ export const browserQuery = gql`
 
 const Page: FC<Props> = (props) => (
   <Layout>
-    <Suspense fallback={<div>loading...</div>}>
-      <ProductPage {...props} />
-    </Suspense>
+    <ProductPage {...props} />
   </Layout>
 )
 

@@ -17,7 +17,7 @@ const View: FC<Props> = (props) => {
   const { searchParams, data: serverData } = props
   const { data: dynamicData } = useSearch(searchParams)
 
-  if (dynamicData === null) {
+  if (dynamicData == null) {
     return null
   }
 
