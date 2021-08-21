@@ -1,13 +1,13 @@
 import React from 'react'
+import ProductGallery from 'src/components/sections/ProductGallery'
 import { ITEMS_PER_PAGE } from 'src/constants'
 import { SearchProvider } from 'src/sdk/search/Provider'
-import ProductGallery from 'src/components/sections/ProductGallery'
 import type { SearchParamsState } from '@vtex/store-sdk'
 import type { FC } from 'react'
 import type { Props as PageProps } from 'src/pages/s/[...]'
 
-import { useSearch } from './hooks/useSearch'
 import Seo from './Seo'
+import { useSearch } from './hooks/useSearch'
 
 interface Props extends PageProps {
   searchParams: SearchParamsState

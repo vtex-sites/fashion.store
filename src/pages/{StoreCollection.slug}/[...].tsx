@@ -1,10 +1,10 @@
-import React, { useMemo } from 'react'
-import Layout from 'src/views/Layout'
-import View from 'src/views/collection'
-import { graphql } from 'gatsby'
 import { parseSearchParamsState } from '@vtex/store-sdk'
-import type { PageProps } from 'gatsby'
+import { graphql } from 'gatsby'
+import React, { useMemo } from 'react'
 import CollectionBanner from 'src/components/sections/CollectionBanner'
+import View from 'src/views/collection'
+import Layout from 'src/views/Layout'
+import type { PageProps } from 'gatsby'
 
 import type {
   BrowserCollectionPageQueryQuery,

@@ -1,9 +1,9 @@
 import React from 'react'
-import { ITEMS_PER_PAGE } from 'src/constants'
-import { SearchProvider } from 'src/sdk/search/Provider'
-import Spinner from 'src/components/ui/Spinner'
 import ProductGallery from 'src/components/sections/ProductGallery'
 import SearchFilters from 'src/components/sections/SearchFilters'
+import Spinner from 'src/components/ui/Spinner'
+import { ITEMS_PER_PAGE } from 'src/constants'
+import { SearchProvider } from 'src/sdk/search/Provider'
 import type { SearchParamsState } from '@vtex/store-sdk'
 import type { Props as PageProps } from 'src/pages/{StoreCollection.slug}/[...]'
 

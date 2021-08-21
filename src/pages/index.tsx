@@ -1,5 +1,5 @@
-import React from 'react'
 import { graphql } from 'gatsby'
+import React from 'react'
 import View from 'src/views/home'
 import Layout from 'src/views/Layout'
 import type { PageProps } from 'gatsby'

@@ -1,5 +1,5 @@
-import React, { lazy, Suspense } from 'react'
 import { useGlobalUIState } from '@vtex/store-sdk'
+import React, { lazy, Suspense } from 'react'
 import Footer from 'src/components/common/Footer'
 import Navbar from 'src/components/common/Navbar'
 import type { PropsWithChildren } from 'react'

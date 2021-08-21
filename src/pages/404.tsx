@@ -1,5 +1,5 @@
-import React, { useMemo } from 'react'
 import { GatsbySeo } from 'gatsby-plugin-next-seo'
+import React, { useMemo } from 'react'
 import Layout from 'src/views/Layout'
 import type { PageProps } from 'gatsby'
 

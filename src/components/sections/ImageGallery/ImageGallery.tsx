@@ -1,7 +1,7 @@
 import { Carousel } from '@vtex/store-ui'
 import clsx from 'clsx'
-import type { IGatsbyImageData } from 'gatsby-plugin-image'
 import React from 'react'
+import type { IGatsbyImageData } from 'gatsby-plugin-image'
 
 import * as styles from './ImageGallery.module.css'
 

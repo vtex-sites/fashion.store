@@ -1,9 +1,9 @@
-import React, { useMemo } from 'react'
-import Layout from 'src/views/Layout'
-import View from 'src/views/collection'
 import { graphql } from 'gatsby'
-import { priceRange } from 'src/sdk/search/priceRange'
+import React, { useMemo } from 'react'
 import CollectionBanner from 'src/components/sections/CollectionBanner'
+import { priceRange } from 'src/sdk/search/priceRange'
+import View from 'src/views/collection'
+import Layout from 'src/views/Layout'
 import type { PageProps } from 'gatsby'
 import type { SearchParamsState } from '@vtex/store-sdk'
 

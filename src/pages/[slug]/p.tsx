@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React from 'react'
 import { gql } from '@vtex/gatsby-plugin-graphql'
 import View from 'src/views/product'
 import { graphql } from 'gatsby'
