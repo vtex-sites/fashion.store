@@ -1,56 +1,23 @@
 import React, { lazy, Suspense } from 'react'
-import type { PropsWithChildren } from 'react'
 import { useGlobalUIState } from '@vtex/store-sdk'
+import Footer from 'src/components/common/Footer'
+import Navbar from 'src/components/common/Navbar'
+import type { PropsWithChildren } from 'react'
 
-const Navbar = lazy(
-  () =>
-    import(
-      /* webpackMode: "eager" */
-      'src/components/common/Navbar'
-    )
-)
-
-const Footer = lazy(
-  () =>
-    import(
-      /* webpackMode: "eager" */
-      'src/components/common/Footer'
-    )
-)
-
-const CartSidebar = lazy(
-  () =>
-    import(
-      /* webpackMode: "lazy" */
-      'src/components/cart/CartSidebar'
-    )
-)
-
-const MenuSidebar = lazy(
-  () =>
-    import(
-      /* webpackMode: "lazy" */
-      'src/components/common/MenuSidebar'
-    )
-)
+const CartSidebar = lazy(() => import('src/components/cart/CartSidebar'))
+const MenuSidebar = lazy(() => import('src/components/common/MenuSidebar'))
 
 function Layout({ children }: PropsWithChildren<unknown>) {
   const { displayMinicart, displayMenuSidebar } = useGlobalUIState()
 
   return (
     <>
+      <Navbar />
+      <main className="min-h-screen">{children}</main>
+      <Footer />
       <Suspense fallback={null}>
         {displayMenuSidebar && <MenuSidebar />}
-      </Suspense>
-      <Suspense fallback={null}>
-        <Navbar />
-      </Suspense>
-      <Suspense fallback={null}>{displayMinicart && <CartSidebar />}</Suspense>
-      <Suspense fallback={null}>
-        <main className="min-h-screen">{children}</main>
-      </Suspense>
-      <Suspense fallback={<div className="h-14" />}>
-        <Footer />
+        {displayMinicart && <CartSidebar />}
       </Suspense>
     </>
   )

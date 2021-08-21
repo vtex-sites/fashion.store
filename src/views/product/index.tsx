@@ -1,36 +1,15 @@
+import React from 'react'
 import { useLocation } from '@reach/router'
 import { graphql } from 'gatsby'
 import queryString from 'query-string'
-import React, { lazy, Suspense } from 'react'
+import ImageGallery from 'src/components/sections/ImageGallery'
+import ProductDetails from 'src/components/sections/ProductDetails'
 
 import { useImageGallery } from './hooks/useImageGallery'
 import { useProduct } from './hooks/useProduct'
+import Seo from './Seo'
 import type { ProductSeoFragment_SiteFragment } from './Seo/__generated__/ProductSeoFragment_site.graphql'
 import type { ProductViewFragment_ProductFragment } from './__generated__/ProductViewFragment_product.graphql'
-
-const Seo = lazy(
-  () =>
-    import(
-      /* webpackMode: "eager" */
-      './Seo'
-    )
-)
-
-const ProductDetails = lazy(
-  () =>
-    import(
-      /* webpackMode: "eager" */
-      'src/components/sections/ProductDetails'
-    )
-)
-
-const ImageGallery = lazy(
-  () =>
-    import(
-      /* webpackMode: "eager" */
-      '../../components/sections/ImageGallery'
-    )
-)
 
 interface Props {
   site: ProductSeoFragment_SiteFragment
@@ -63,18 +42,12 @@ function View({ product: serverData, site }: Props) {
   return (
     <>
       {/* Seo */}
-      <Suspense fallback={null}>
-        <Seo product={product} site={site} />
-      </Suspense>
+      <Seo product={product} site={site} />
 
       {/* Visual Sections */}
       <div className="flex flex-col sm:flex-row">
-        <Suspense fallback={null}>
-          <ImageGallery images={images} alt={product.productName ?? ''} />
-        </Suspense>
-        <Suspense fallback={null}>
-          <ProductDetails product={product} />
-        </Suspense>
+        <ImageGallery images={images} alt={product.productName ?? ''} />
+        <ProductDetails product={product} />
       </div>
     </>
   )

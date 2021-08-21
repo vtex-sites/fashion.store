@@ -1,35 +1,14 @@
-import React, { lazy, Suspense } from 'react'
+import React from 'react'
 import { ITEMS_PER_PAGE } from 'src/constants'
 import { SearchProvider } from 'src/sdk/search/Provider'
+import Spinner from 'src/components/ui/Spinner'
+import ProductGallery from 'src/components/sections/ProductGallery'
+import SearchFilters from 'src/components/sections/SearchFilters'
 import type { SearchParamsState } from '@vtex/store-sdk'
 import type { Props as PageProps } from 'src/pages/{StoreCollection.slug}/[...]'
-import Spinner from 'src/components/ui/Spinner'
 
 import { useCollection } from './hooks/useCollection'
-
-const Seo = lazy(
-  () =>
-    import(
-      /* webpackMode: "eager" */
-      './Seo'
-    )
-)
-
-const ProductGallery = lazy(
-  () =>
-    import(
-      /* webpackMode: "eager" */
-      'src/components/sections/ProductGallery'
-    )
-)
-
-const SearchFilters = lazy(
-  () =>
-    import(
-      /* webpackMode: "eager" */
-      'src/components/sections/SearchFilters'
-    )
-)
+import Seo from './Seo'
 
 interface Props extends PageProps {
   searchParams: SearchParamsState
@@ -45,7 +24,11 @@ function View(props: Props) {
   const { data: dynamicData } = useCollection(searchParams)
 
   if (dynamicData == null) {
-    return null
+    return (
+      <div className="h-96 flex center-items justify-center">
+        <Spinner />
+      </div>
+    )
   }
 
   const data = { ...dynamicData, ...staticData }
@@ -69,35 +52,20 @@ function View(props: Props) {
       }}
     >
       {/* Seo components */}
-      <Suspense fallback={null}>
-        <Seo
-          slug={slug}
-          site={site!}
-          storeCollection={storeCollection!}
-          breadcrumb={facets!.breadcrumb! as any}
-        />
-      </Suspense>
+      <Seo
+        slug={slug}
+        site={site!}
+        storeCollection={storeCollection!}
+        breadcrumb={facets!.breadcrumb! as any}
+      />
 
       {/* UI components */}
-      <Suspense fallback={null}>
-        <SearchFilters facets={facets!.facets as any} />
-      </Suspense>
-
-      <Suspense fallback={null}>
-        <ProductGallery
-          initialData={dynamicData}
-          productSearch={productSearch!}
-        />
-      </Suspense>
+      <SearchFilters facets={facets!.facets as any} />
+      <ProductGallery
+        initialData={dynamicData}
+        productSearch={productSearch!}
+      />
     </SearchProvider>
-  )
-}
-
-export function Preview() {
-  return (
-    <div className="h-96 flex center-items justify-center">
-      <Spinner />
-    </div>
   )
 }
 

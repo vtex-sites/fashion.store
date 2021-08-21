@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 const checkAtTopOfWindow = () => window.pageYOffset === 0
 
 export const useTransparentMode = () => {
-  const [isTransparentMode, setTransparentMode] = useState(checkAtTopOfWindow())
+  const [isTransparentMode, setTransparentMode] = useState(true)
 
   useEffect(() => {
     const handleScroll = () => {

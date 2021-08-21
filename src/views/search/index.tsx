@@ -1,27 +1,13 @@
-import React, { lazy, Suspense } from 'react'
+import React from 'react'
 import { ITEMS_PER_PAGE } from 'src/constants'
 import { SearchProvider } from 'src/sdk/search/Provider'
+import ProductGallery from 'src/components/sections/ProductGallery'
 import type { SearchParamsState } from '@vtex/store-sdk'
 import type { FC } from 'react'
 import type { Props as PageProps } from 'src/pages/s/[...]'
 
 import { useSearch } from './hooks/useSearch'
-
-const Seo = lazy(
-  () =>
-    import(
-      /* webpackMode: "eager" */
-      './Seo'
-    )
-)
-
-const ProductGallery = lazy(
-  () =>
-    import(
-      /* webpackMode: "eager" */
-      'src/components/sections/ProductGallery'
-    )
-)
+import Seo from './Seo'
 
 interface Props extends PageProps {
   searchParams: SearchParamsState
@@ -55,18 +41,14 @@ const View: FC<Props> = (props) => {
       }}
     >
       {/* Seo Components */}
-      <Suspense fallback={null}>
-        <Seo site={site!} />
-      </Suspense>
+      <Seo site={site!} />
 
       {/* UI Components */}
-      <Suspense fallback={null}>
-        <ProductGallery
-          initialData={dynamicData}
-          facets={facets!.facets as any}
-          productSearch={productSearch!}
-        />
-      </Suspense>
+      <ProductGallery
+        initialData={dynamicData}
+        facets={facets!.facets as any}
+        productSearch={productSearch!}
+      />
     </SearchProvider>
   )
 }
