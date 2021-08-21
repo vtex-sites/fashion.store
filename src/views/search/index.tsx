@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, SuspenseList } from 'react'
+import React, { lazy, Suspense } from 'react'
 import { ITEMS_PER_PAGE } from 'src/constants'
 import { SearchProvider } from 'src/sdk/search/Provider'
 import type { SearchParamsState } from '@vtex/store-sdk'
@@ -31,6 +31,10 @@ const View: FC<Props> = (props) => {
   const { searchParams, data: serverData } = props
   const { data: dynamicData } = useSearch(searchParams)
 
+  if (dynamicData === null) {
+    return null
+  }
+
   const data = { ...dynamicData, ...serverData }
   const { site, vtex } = data
   const { productSearch, facets } = vtex!
@@ -50,21 +54,19 @@ const View: FC<Props> = (props) => {
         total: Math.ceil(totalCount / ITEMS_PER_PAGE),
       }}
     >
-      <SuspenseList>
-        {/* Seo Components */}
-        <Suspense fallback={null}>
-          <Seo site={site!} />
-        </Suspense>
+      {/* Seo Components */}
+      <Suspense fallback={null}>
+        <Seo site={site!} />
+      </Suspense>
 
-        {/* UI Components */}
-        <Suspense fallback={null}>
-          <ProductGallery
-            initialData={dynamicData}
-            facets={facets!.facets as any}
-            productSearch={productSearch!}
-          />
-        </Suspense>
-      </SuspenseList>
+      {/* UI Components */}
+      <Suspense fallback={null}>
+        <ProductGallery
+          initialData={dynamicData}
+          facets={facets!.facets as any}
+          productSearch={productSearch!}
+        />
+      </Suspense>
     </SearchProvider>
   )
 }

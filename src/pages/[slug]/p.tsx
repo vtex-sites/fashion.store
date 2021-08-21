@@ -34,7 +34,6 @@ const ProductPage: FC<Props> = (props) => {
   >({
     ...BrowserProductPageQuery,
     variables: { slug },
-    suspense: true,
   })
 
   if (browerData == null || serverData.site == null) {

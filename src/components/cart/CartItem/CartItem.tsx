@@ -67,13 +67,10 @@ function CartItem({ item }: Props) {
                 gift: 0,
               })
             }}
+            defaultValue={selling}
           >
             {quantity.map((_, q) => (
-              <option
-                key={`${name}-quantity-${q}`}
-                value={q + 1}
-                selected={q + 1 === selling}
-              >
+              <option key={`${name}-quantity-${q}`} value={q + 1}>
                 {q + 1}
               </option>
             ))}

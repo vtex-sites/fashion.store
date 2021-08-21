@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, SuspenseList } from 'react'
+import React, { lazy, Suspense } from 'react'
 import type { PropsWithChildren } from 'react'
 import { useGlobalUIState } from '@vtex/store-sdk'
 
@@ -38,7 +38,7 @@ function Layout({ children }: PropsWithChildren<unknown>) {
   const { displayMinicart, displayMenuSidebar } = useGlobalUIState()
 
   return (
-    <SuspenseList revealOrder="together">
+    <>
       <Suspense fallback={null}>
         {displayMenuSidebar && <MenuSidebar />}
       </Suspense>
@@ -52,7 +52,7 @@ function Layout({ children }: PropsWithChildren<unknown>) {
       <Suspense fallback={<div className="h-14" />}>
         <Footer />
       </Suspense>
-    </SuspenseList>
+    </>
   )
 }
 

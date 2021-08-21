@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, SuspenseList } from 'react'
+import React, { lazy, Suspense } from 'react'
 import { ITEMS_PER_PAGE } from 'src/constants'
 import { SearchProvider } from 'src/sdk/search/Provider'
 import type { SearchParamsState } from '@vtex/store-sdk'
@@ -44,6 +44,10 @@ function View(props: Props) {
 
   const { data: dynamicData } = useCollection(searchParams)
 
+  if (dynamicData == null) {
+    return null
+  }
+
   const data = { ...dynamicData, ...staticData }
 
   const { storeCollection, site, vtex } = data
@@ -64,29 +68,27 @@ function View(props: Props) {
         total: Math.ceil(totalCount / ITEMS_PER_PAGE),
       }}
     >
-      <SuspenseList>
-        {/* Seo components */}
-        <Suspense fallback={null}>
-          <Seo
-            slug={slug}
-            site={site!}
-            storeCollection={storeCollection!}
-            breadcrumb={facets!.breadcrumb! as any}
-          />
-        </Suspense>
+      {/* Seo components */}
+      <Suspense fallback={null}>
+        <Seo
+          slug={slug}
+          site={site!}
+          storeCollection={storeCollection!}
+          breadcrumb={facets!.breadcrumb! as any}
+        />
+      </Suspense>
 
-        {/* UI components */}
-        <Suspense fallback={null}>
-          <SearchFilters facets={facets!.facets as any} />
-        </Suspense>
+      {/* UI components */}
+      <Suspense fallback={null}>
+        <SearchFilters facets={facets!.facets as any} />
+      </Suspense>
 
-        <Suspense fallback={null}>
-          <ProductGallery
-            initialData={dynamicData}
-            productSearch={productSearch!}
-          />
-        </Suspense>
-      </SuspenseList>
+      <Suspense fallback={null}>
+        <ProductGallery
+          initialData={dynamicData}
+          productSearch={productSearch!}
+        />
+      </Suspense>
     </SearchProvider>
   )
 }

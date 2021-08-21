@@ -1,7 +1,7 @@
 import { useLocation } from '@reach/router'
 import { graphql } from 'gatsby'
 import queryString from 'query-string'
-import React, { lazy, Suspense, SuspenseList } from 'react'
+import React, { lazy, Suspense } from 'react'
 
 import { useImageGallery } from './hooks/useImageGallery'
 import { useProduct } from './hooks/useProduct'
@@ -61,7 +61,7 @@ function View({ product: serverData, site }: Props) {
   }
 
   return (
-    <SuspenseList>
+    <>
       {/* Seo */}
       <Suspense fallback={null}>
         <Seo product={product} site={site} />
@@ -76,7 +76,7 @@ function View({ product: serverData, site }: Props) {
           <ProductDetails product={product} />
         </Suspense>
       </div>
-    </SuspenseList>
+    </>
   )
 }
 
