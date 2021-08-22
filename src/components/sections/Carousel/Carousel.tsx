@@ -66,7 +66,7 @@ function CarouselSection({ items, title, links }: Props) {
           </Link>
         ))}
       </div>
-      <Carousel>
+      <Carousel infiniteMode={false}>
         {images.map((image, idx) => (
           <GatsbyImage
             className={styles.image}
