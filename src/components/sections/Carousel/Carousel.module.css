@@ -56,7 +56,7 @@ svg {
 }
 
 [data-carousel-bullets] [data-store-bullets] {
-  @apply flex list-none w-screen justify-center;
+  @apply flex list-none w-full justify-center;
 }
 
 [data-carousel-bullets] [data-store-bullets] [data-store-button] {
